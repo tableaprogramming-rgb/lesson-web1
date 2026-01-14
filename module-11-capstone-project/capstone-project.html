@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 11: Capstone Project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body>
+    <!-- Home Button -->
+    <div class="course-nav home">
+        <a href="../index.html" class="course-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Home
+        </a>
+    </div>
+
+    <!-- Previous Lesson Button -->
+    <div class="course-nav prev">
+        <a href="../module-10-jquery-essentials/jquery-essentials.html" class="course-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Previous Lesson
+        </a>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- Slides Container -->
+    <div class="slides-container" id="slidesContainer">
+
+        <!-- Slide 1: Title -->
+        <section class="slide active" data-slide="1">
+            <div class="slide-content title-slide">
+                <div class="title-decoration">
+                    <span class="tag">Module 11</span>
+                </div>
+                <h1 class="main-title">
+                    <span class="gradient-text">Capstone Project</span>
+                    <span class="subtitle">Prove Your Mastery</span>
+                </h1>
+                <p class="presenter-info">Build a Complete, Professional Website</p>
+                <div class="animated-icons">
+                    <div class="floating-icon icon-1">🎯</div>
+                    <div class="floating-icon icon-2">🚀</div>
+                    <div class="floating-icon icon-3">🏆</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: Project Goals -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-title">🎯 Capstone Project Goals</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card" style="--delay: 0s;">
+                        <div class="objective-icon">🧠</div>
+                        <h3>Integrate All Learning</h3>
+                        <p>HTML, CSS, JavaScript, responsive design</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.1s;">
+                        <div class="objective-icon">📋</div>
+                        <h3>Demonstrate Proficiency</h3>
+                        <p>Plan, build, test, deploy a website</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.2s;">
+                        <div class="objective-icon">🎨</div>
+                        <h3>Build Portfolio Work</h3>
+                        <p>Create something to show employers</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.3s;">
+                        <div class="objective-icon">💡</div>
+                        <h3>Solve Real Problems</h3>
+                        <p>Build something useful and interesting</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.4s;">
+                        <div class="objective-icon">🔧</div>
+                        <h3>Professional Workflow</h3>
+                        <p>Git, testing, documentation, deployment</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.5s;">
+                        <div class="objective-icon">🌟</div>
+                        <h3>Polish & Professionalism</h3>
+                        <p>Error-free, performant, accessible</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: MVP Requirements -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-title">✅ Minimum Viable Product (MVP) Requirements</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>📄</span>
+                        <div>
+                            <strong>Minimum 3 Pages</strong>
+                            <p>Home page + at least 2 more pages (about, portfolio, contact, services, etc.)</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>📱</span>
+                        <div>
+                            <strong>Responsive Design</strong>
+                            <p>Works beautifully on mobile (<768px), tablet (768px-1024px), desktop (>1024px)</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🏷️</span>
+                        <div>
+                            <strong>Semantic HTML</strong>
+                            <p>Use `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>` correctly</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🎨</span>
+                        <div>
+                            <strong>Custom CSS</strong>
+                            <p>All styling created by you. Bootstrap is optional, not a substitute for custom CSS</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🔗</span>
+                        <div>
+                            <strong>Navigation</strong>
+                            <p>Consistent navigation between all pages (navbar, menu, or links)</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>⚡</span>
+                        <div>
+                            <strong>Interactive Features</strong>
+                            <p>At least 2: form validation, scroll animations, DOM manipulation, modals, gallery/carousel</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Project Ideas -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-title">💡 Capstone Project Ideas</h2>
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div style="background: rgba(99, 102, 241, 0.2); border: 1px solid rgba(99, 102, 241, 0.4); padding: 1.5rem; border-radius: 8px;">
+                            <strong style="color: rgba(99, 102, 241, 1); font-size: 1rem;">1. Personal Portfolio</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                                Showcase your skills and projects. Hero section, portfolio gallery, blog, contact form.
+                            </p>
+                        </div>
+
+                        <div style="background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.4); padding: 1.5rem; border-radius: 8px;">
+                            <strong style="color: rgba(168, 85, 247, 1); font-size: 1rem;">2. Restaurant/Café Website</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                                Home, menu (filterable), about, contact with reservation form.
+                            </p>
+                        </div>
+
+                        <div style="background: rgba(236, 72, 153, 0.2); border: 1px solid rgba(236, 72, 153, 0.4); padding: 1.5rem; border-radius: 8px;">
+                            <strong style="color: rgba(236, 72, 153, 1); font-size: 1rem;">3. Business Landing Page</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                                Hero, services, testimonials, CTA. Contact form with validation.
+                            </p>
+                        </div>
+
+                        <div style="background: rgba(6, 182, 212, 0.2); border: 1px solid rgba(6, 182, 212, 0.4); padding: 1.5rem; border-radius: 8px;">
+                            <strong style="color: rgba(6, 182, 212, 1); font-size: 1rem;">4. Tech Blog/Magazine</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                                Featured articles, category filtering, search, comment section, newsletter signup.
+                            </p>
+                        </div>
+
+                        <div style="background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.4); padding: 1.5rem; border-radius: 8px;">
+                            <strong style="color: rgba(16, 185, 129, 1); font-size: 1rem;">5. Event/Conference Website</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                                Event overview, speakers, schedule, registration form, countdown timer.
+                            </p>
+                        </div>
+
+                        <div style="background: rgba(245, 158, 11, 0.2); border: 1px solid rgba(245, 158, 11, 0.4); padding: 1.5rem; border-radius: 8px;">
+                            <strong style="color: rgba(245, 158, 11, 1); font-size: 1rem;">6. Your Own Idea</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                                Something that interests you! Must demonstrate all core skills you've learned.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Timeline & Phases -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-title">📅 Project Timeline: 4 Weeks</h2>
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div style="background: rgba(99, 102, 241, 0.2); border: 1px solid rgba(99, 102, 241, 0.5); padding: 1.5rem; border-radius: 8px;">
+                        <h4 style="color: rgba(99, 102, 241, 1); margin-bottom: 1rem; font-size: 1rem;">Week 1: Planning</h4>
+                        <ul style="font-size: 0.85rem; padding-left: 1.2rem; color: var(--text-secondary);">
+                            <li>Project scope document</li>
+                            <li>Sitemap (page structure)</li>
+                            <li>Wireframes</li>
+                            <li>Style guide</li>
+                            <li>Feature priorities</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.5); padding: 1.5rem; border-radius: 8px;">
+                        <h4 style="color: rgba(168, 85, 247, 1); margin-bottom: 1rem; font-size: 1rem;">Week 2: Dev Phase 1</h4>
+                        <ul style="font-size: 0.85rem; padding-left: 1.2rem; color: var(--text-secondary);">
+                            <li>HTML structure (all pages)</li>
+                            <li>Basic CSS layout</li>
+                            <li>Navigation working</li>
+                            <li>Test & debug</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: rgba(236, 72, 153, 0.2); border: 1px solid rgba(236, 72, 153, 0.5); padding: 1.5rem; border-radius: 8px;">
+                        <h4 style="color: rgba(236, 72, 153, 1); margin-bottom: 1rem; font-size: 1rem;">Week 3: Dev Phase 2</h4>
+                        <ul style="font-size: 0.85rem; padding-left: 1.2rem; color: var(--text-secondary);">
+                            <li>CSS styling & polish</li>
+                            <li>JavaScript interactivity</li>
+                            <li>Form validation</li>
+                            <li>Responsive testing</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: rgba(6, 182, 212, 0.2); border: 1px solid rgba(6, 182, 212, 0.5); padding: 1.5rem; border-radius: 8px;">
+                        <h4 style="color: rgba(6, 182, 212, 1); margin-bottom: 1rem; font-size: 1rem;">Week 4: Polish & Deploy</h4>
+                        <ul style="font-size: 0.85rem; padding-left: 1.2rem; color: var(--text-secondary);">
+                            <li>Code cleanup</li>
+                            <li>Performance optimization</li>
+                            <li>Cross-browser testing</li>
+                            <li>Deploy to GitHub Pages</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Evaluation Criteria -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-title">📊 How Your Project Will Be Evaluated</h2>
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; align-items: center;">
+                            <div>
+                                <strong style="color: rgba(99, 102, 241, 1); font-size: 1rem;">Functionality (30%)</strong>
+                                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                                    Pages load without errors, navigation works, forms validate, interactive features function properly, no console errors.
+                                </p>
+                            </div>
+                            <div style="background: rgba(99, 102, 241, 0.3); padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; font-size: 1.2rem; color: rgba(99, 102, 241, 1);">
+                                30%
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; align-items: center;">
+                            <div>
+                                <strong style="color: rgba(168, 85, 247, 1); font-size: 1rem;">Design & UX (25%)</strong>
+                                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                                    Professional appearance, consistent design system, responsive on all breakpoints, good colors and typography, clear hierarchy.
+                                </p>
+                            </div>
+                            <div style="background: rgba(168, 85, 247, 0.3); padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; font-size: 1.2rem; color: rgba(168, 85, 247, 1);">
+                                25%
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; align-items: center;">
+                            <div>
+                                <strong style="color: rgba(236, 72, 153, 1); font-size: 1rem;">Code Quality (20%)</strong>
+                                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                                    Well-organized readable code, semantic HTML, organized CSS, clean JavaScript, no warnings, consistent naming.
+                                </p>
+                            </div>
+                            <div style="background: rgba(236, 72, 153, 0.3); padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; font-size: 1.2rem; color: rgba(236, 72, 153, 1);">
+                                20%
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; align-items: center;">
+                            <div>
+                                <strong style="color: rgba(6, 182, 212, 1); font-size: 1rem;">Responsive Design (15%)</strong>
+                                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                                    Mobile layout works perfectly, tablet layout optimized, desktop layout polished, appropriate touch targets, no overflow/cutoff.
+                                </p>
+                            </div>
+                            <div style="background: rgba(6, 182, 212, 0.3); padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; font-size: 1.2rem; color: rgba(6, 182, 212, 1);">
+                                15%
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; align-items: center;">
+                            <div>
+                                <strong style="color: rgba(16, 185, 129, 1); font-size: 1rem;">Technical Implementation (10%)</strong>
+                                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                                    Uses learned technologies appropriately, follows best practices, acceptable performance, proper file organization.
+                                </p>
+                            </div>
+                            <div style="background: rgba(16, 185, 129, 0.3); padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; font-size: 1.2rem; color: rgba(16, 185, 129, 1);">
+                                10%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Getting Started -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-title">🚀 Getting Started: Step by Step</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>1️⃣</span>
+                        <div>
+                            <strong>Choose Your Idea</strong>
+                            <p>Pick from suggestions or create your own. Make sure it's achievable in 4 weeks and aligns with your interests.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>2️⃣</span>
+                        <div>
+                            <strong>Create Project Folder & Git Repo</strong>
+                            <p>mkdir my-project && cd my-project && git init. Organize: index.html, css/, js/, images/ folders.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>3️⃣</span>
+                        <div>
+                            <strong>Plan Your Architecture</strong>
+                            <p>Create wireframes. Define pages, sections, components. Document your design system (colors, fonts, spacing).</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>4️⃣</span>
+                        <div>
+                            <strong>Start with HTML</strong>
+                            <p>Build semantic HTML structure for all pages. No CSS yet. Focus on proper hierarchy and accessibility.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Steps -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div style="background: rgba(99, 102, 241, 0.2); border: 1px solid rgba(99, 102, 241, 0.4); padding: 1rem; border-radius: 8px;">
+                        <strong style="color: rgba(99, 102, 241, 1);">5️⃣ Add CSS</strong><br>
+                        <span style="font-size: 0.8rem; color: var(--text-secondary);">Start mobile, then tablet/desktop via media queries</span>
+                    </div>
+                    <div style="background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.4); padding: 1rem; border-radius: 8px;">
+                        <strong style="color: rgba(168, 85, 247, 1);">6️⃣ Add JavaScript</strong><br>
+                        <span style="font-size: 0.8rem; color: var(--text-secondary);">Implement interactivity and form validation</span>
+                    </div>
+                    <div style="background: rgba(236, 72, 153, 0.2); border: 1px solid rgba(236, 72, 153, 0.4); padding: 1rem; border-radius: 8px;">
+                        <strong style="color: rgba(236, 72, 153, 1);">7️⃣ Test & Optimize</strong><br>
+                        <span style="font-size: 0.8rem; color: var(--text-secondary);">Cross-browser, mobile, performance checks</span>
+                    </div>
+                    <div style="background: rgba(6, 182, 212, 0.2); border: 1px solid rgba(6, 182, 212, 0.4); padding: 1rem; border-radius: 8px;">
+                        <strong style="color: rgba(6, 182, 212, 1);">8️⃣ Deploy</strong><br>
+                        <span style="font-size: 0.8rem; color: var(--text-secondary);">Push to GitHub Pages, verify live</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: Resources & Tools -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content">
+                <h2 class="slide-title">🛠️ Resources & Tools You'll Need</h2>
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <!-- Development Tools -->
+                        <div style="background: rgba(99, 102, 241, 0.2); border: 1px solid rgba(99, 102, 241, 0.4); padding: 1.5rem; border-radius: 8px;">
+                            <h4 style="color: rgba(99, 102, 241, 1); margin-bottom: 1rem;">Development Tools</h4>
+                            <ul style="font-size: 0.85rem; padding-left: 1.2rem; color: var(--text-secondary);">
+                                <li>VS Code (code editor)</li>
+                                <li>Chrome DevTools (debugging)</li>
+                                <li>Git & GitHub</li>
+                                <li>GitHub Pages (hosting)</li>
+                            </ul>
+                        </div>
+
+                        <!-- Design Resources -->
+                        <div style="background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.4); padding: 1.5rem; border-radius: 8px;">
+                            <h4 style="color: rgba(168, 85, 247, 1); margin-bottom: 1rem;">Design Resources</h4>
+                            <ul style="font-size: 0.85rem; padding-left: 1.2rem; color: var(--text-secondary);">
+                                <li>Figma (wireframes)</li>
+                                <li>Coolors.co (color palettes)</li>
+                                <li>Google Fonts (typography)</li>
+                                <li>Feather Icons (icons)</li>
+                            </ul>
+                        </div>
+
+                        <!-- Content Resources -->
+                        <div style="background: rgba(236, 72, 153, 0.2); border: 1px solid rgba(236, 72, 153, 0.4); padding: 1.5rem; border-radius: 8px;">
+                            <h4 style="color: rgba(236, 72, 153, 1); margin-bottom: 1rem;">Content Resources</h4>
+                            <ul style="font-size: 0.85rem; padding-left: 1.2rem; color: var(--text-secondary);">
+                                <li>Unsplash (images)</li>
+                                <li>Pexels (images)</li>
+                                <li>Lorem Ipsum (text)</li>
+                                <li>Placeholder.com (images)</li>
+                            </ul>
+                        </div>
+
+                        <!-- Reference -->
+                        <div style="background: rgba(6, 182, 212, 0.2); border: 1px solid rgba(6, 182, 212, 0.4); padding: 1.5rem; border-radius: 8px;">
+                            <h4 style="color: rgba(6, 182, 212, 1); margin-bottom: 1rem;">Reference & Learning</h4>
+                            <ul style="font-size: 0.85rem; padding-left: 1.2rem; color: var(--text-secondary);">
+                                <li>MDN Web Docs</li>
+                                <li>CSS-Tricks</li>
+                                <li>Web.dev</li>
+                                <li>Stack Overflow</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 9: Final Thoughts & Next Steps -->
+        <section class="slide" data-slide="9">
+            <div class="slide-content summary-slide">
+                <h2 class="slide-title">💪 You've Got This!</h2>
+                <div class="end-decoration">
+                    <span class="thank-you">You now have the skills to build professional websites</span>
+                    <span class="questions">Build something amazing with your capstone project</span>
+                </div>
+                <div class="demo-steps" style="margin-top: 3rem;">
+                    <div class="demo-step">
+                        <span class="step-number">🎓</span>
+                        <p>You've mastered HTML, CSS, and JavaScript fundamentals</p>
+                    </div>
+                    <div class="demo-step">
+                        <span class="step-number">🔧</span>
+                        <p>You understand responsive design and accessibility</p>
+                    </div>
+                    <div class="demo-step">
+                        <span class="step-number">🎨</span>
+                        <p>You can build beautiful, functional websites</p>
+                    </div>
+                    <div class="demo-step">
+                        <span class="step-number">🚀</span>
+                        <p>Your capstone proves you can build real projects from start to finish</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.5); border-radius: 8px; text-align: center;">
+                    <strong style="color: rgba(16, 185, 129, 1); font-size: 1rem;">Welcome to Web Development</strong>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.75rem;">
+                        This is just the beginning. Continue learning frameworks, backend development, and advanced concepts. The web is vast—keep building, keep learning. 🌟
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Slide Navigation -->
+    <nav class="slide-nav">
+        <button class="nav-btn prev-btn" id="prevBtn">←</button>
+        <span class="slide-counter" id="slideCounter">1 / 9</span>
+        <button class="nav-btn next-btn" id="nextBtn">→</button>
+    </nav>
+
+    <!-- Keyboard Hint -->
+    <div class="keyboard-hint">
+        <span>Use <kbd>←</kbd> <kbd>→</kbd> or <kbd>Space</kbd></span>
+    </div>
+
+    <!-- Script -->
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

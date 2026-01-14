@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1: Computer & Digital Literacy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body>
+    <!-- Course Navigation -->
+    <div class="course-nav home">
+        <a href="../index.html" class="course-btn">
+            <svg viewBox="0 0 24 24">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+            </svg>
+            Home
+        </a>
+    </div>
+    <div class="course-nav prev">
+        <a href="../module-0-orientation/orientation.html" class="course-btn">
+            <svg viewBox="0 0 24 24">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z" />
+            </svg>
+            Previous Lesson
+        </a>
+    </div>
+    <div class="course-nav next">
+        <a href="../module-2-introduction-to-web-architecture/introduction.html" class="course-btn">
+            Next Lesson
+            <svg viewBox="0 0 24 24">
+                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+            </svg>
+        </a>
+    </div>
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <nav class="slide-nav">
+        <button class="nav-btn prev-btn" id="prevBtn">←</button>
+        <span class="slide-counter" id="slideCounter">1 / 8</span>
+        <button class="nav-btn next-btn" id="nextBtn">→</button>
+    </nav>
+    <div class="keyboard-hint"><span>Use <kbd>←</kbd> <kbd>→</kbd> or <kbd>Space</kbd></span></div>
+    <div class="slides-container" id="slidesContainer">
+
+        <!-- Slide 1: Welcome -->
+        <section class="slide active" data-slide="1">
+            <div class="slide-content title-slide">
+                <div class="title-decoration"><span class="tag">Module 01</span></div>
+                <h1 class="main-title">
+                    <span class="gradient-text">Digital Literacy</span>
+                    <span class="subtitle">Foundation for Developers</span>
+                </h1>
+                <p class="presenter-info">Efficiency, Organization, and Mastery</p>
+                <div class="animated-icons">
+                    <div class="floating-icon icon-1">💻</div>
+                    <div class="floating-icon icon-2">📁</div>
+                    <div class="floating-icon icon-3">⌨️</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: Learning Objectives -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-title">🎯 Learning Objectives</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-icon">📂</div>
+                        <h3>File Mastery</h3>
+                        <p>Understand the logic of files, folders, and path structures.</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🏷️</div>
+                        <h3>Extensions</h3>
+                        <p>Identify core web formats (.html, .css, .js).</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🚀</div>
+                        <h3>Speed</h3>
+                        <p>Learn keyboard shortcuts to 10x your productivity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: The Library Metaphor -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-title">🏛️ The Digital Library</h2>
+                <div class="comparison-container">
+                    <div class="comparison-card internet-card">
+                        <h3>📄 The Books (Files)</h3>
+                        <p>Individual units of data. In web dev, your site is a collection of many books.</p>
+                        <div class="card-metaphor">Every book has a unique title and shelf.</div>
+                    </div>
+                    <div class="vs-badge">→</div>
+                    <div class="comparison-card web-card">
+                        <h3>📁 The Shelves (Folders)</h3>
+                        <p>Containers used to group related files. Folders can hold other folders (nesting).</p>
+                        <div class="card-metaphor">Hierarchy is the key to organization.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Extensions -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-title">🏷️ File Extensions</h2>
+                <p class="slide-subtitle">How your computer identifies data</p>
+                <div class="tech-stack">
+                    <div class="tech-card html-tech">
+                        <div class="tech-icon">.html</div>
+                        <h3>Structure</h3>
+                        <p>The Markup.</p>
+                    </div>
+                    <div class="tech-card css-tech">
+                        <div class="tech-icon">.css</div>
+                        <h3>Styles</h3>
+                        <p>The Design.</p>
+                    </div>
+                    <div class="tech-card js-tech">
+                        <div class="tech-icon">.js</div>
+                        <h3>Logic</h3>
+                        <p>The Brain.</p>
+                    </div>
+                    <div class="tech-card" style="background: rgba(255,255,255,0.05);">
+                        <div class="tech-icon">.webp</div>
+                        <h3>Media</h3>
+                        <p>The View.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Keyboard Shortcuts (Essentials) -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-title">⌨️ The Developer's Speed</h2>
+                <div class="key-points">
+                    <div class="key-point"><span>💾</span><strong>Cmd/Ctrl + S</strong>: Save your work instantly.</div>
+                    <div class="key-point"><span>⏪</span><strong>Cmd/Ctrl + Z</strong>: Undo your last mistake.</div>
+                    <div class="key-point"><span>📑</span><strong>Cmd/Ctrl + Tab</strong>: Switch apps without a mouse.
+                    </div>
+                    <div class="key-point"><span>🔍</span><strong>Cmd/Ctrl + P</strong>: Quick-open files in VS Code.
+                    </div>
+                </div>
+                <div class="note" style="margin-top: 2rem; color: var(--primary);">
+                    Pro Tip: If you use the mouse for everything, you're 50% slower.
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Naming Conventions -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-title">📏 Naming Like a Pro</h2>
+                <div class="comparison-container">
+                    <div class="comparison-card internet-card">
+                        <h3>✅ DO THESE</h3>
+                        <ul>
+                            <li><code>index.html</code> (Lowercase)</li>
+                            <li><code>about-us.html</code> (Dashes)</li>
+                            <li><code>hero-image.png</code> (Clear)</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card web-card" style="border-color: #ff4d4d;">
+                        <h3>❌ AVOID THESE</h3>
+                        <ul>
+                            <li><code>My Page.html</code> (Spaces)</li>
+                            <li><code>ABOUT.HTML</code> (Caps)</li>
+                            <li><code>img_123.jpg</code> (Vague)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Success Mindset -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-title">🧠 Clean Desk, Clean Code</h2>
+                <blockquote>
+                    "Your folder structure is the map of your mind. If your files are messy, your code will be too."
+                </blockquote>
+                <div class="objectives-grid" style="margin-top: 2rem;">
+                    <div class="objective-card" style="padding: 1.5rem;">
+                        <p>1. One Root Folder</p>
+                    </div>
+                    <div class="objective-card" style="padding: 1.5rem;">
+                        <p>2. Semantic Names</p>
+                    </div>
+                    <div class="objective-card" style="padding: 1.5rem;">
+                        <p>3. Organized Assets</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: Next Up -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content summary-slide">
+                <h2 class="slide-title">🚀 Ready for Part 2?</h2>
+                <div class="end-decoration">
+                    <span class="thank-you">Mastered your tools?</span>
+                    <span class="questions">Next: Module 2 - Web Architecture</span>
+                </div>
+                <div class="demo-steps" style="margin-top: 3rem;">
+                    <div class="demo-step">
+                        <span class="step-number">GO</span>
+                        <p>Proceed to Architecture & Client-Server Models</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

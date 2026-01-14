@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 2: Web Architecture & Infrastructure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body>
+    <!-- Course Navigation -->
+    <div class="course-nav home">
+        <a href="../index.html" class="course-btn">
+            <svg viewBox="0 0 24 24">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+            </svg>
+            Home
+        </a>
+    </div>
+    <div class="course-nav prev">
+        <a href="../module-1-computer-digital-literacy/digital-literacy.html" class="course-btn">
+            <svg viewBox="0 0 24 24">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z" />
+            </svg>
+            Previous Lesson
+        </a>
+    </div>
+    <div class="course-nav next">
+        <a href="../module-3-introduction-to-html/introduction-to-html.html" class="course-btn">
+            Next Lesson
+            <svg viewBox="0 0 24 24">
+                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+            </svg>
+        </a>
+    </div>
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <nav class="slide-nav">
+        <button class="nav-btn prev-btn" id="prevBtn">←</button>
+        <span class="slide-counter" id="slideCounter">1 / 8</span>
+        <button class="nav-btn next-btn" id="nextBtn">→</button>
+    </nav>
+    <div class="keyboard-hint"><span>Use <kbd>←</kbd> <kbd>→</kbd> or <kbd>Space</kbd></span></div>
+    <div class="slides-container" id="slidesContainer">
+
+        <!-- Slide 1: Welcome -->
+        <section class="slide active" data-slide="1">
+            <div class="slide-content title-slide">
+                <div class="title-decoration"><span class="tag">Module 02</span></div>
+                <h1 class="main-title">
+                    <span class="gradient-text">Web Architecture</span>
+                    <span class="subtitle">& Infrastructure</span>
+                </h1>
+                <p class="presenter-info">How the Global Internet Really Works</p>
+                <div class="animated-icons">
+                    <div class="floating-icon icon-1">🌐</div>
+                    <div class="floating-icon icon-2">🖥️</div>
+                    <div class="floating-icon icon-3">📡</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: Objectives -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-title">🎯 Learning Objectives</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-icon">🔌</div>
+                        <h3>The Network</h3>
+                        <p>Distinguish between the physical Internet and the Logical Web.</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🔄</div>
+                        <h3>Client-Server</h3>
+                        <p>Master the request/response cycle of web browsing.</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🏗️</div>
+                        <h3>3 Pillars</h3>
+                        <p>Understand the specific roles of HTML, CSS, and JS.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Internet vs WWW -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-title">🌐 Internet vs. World Wide Web</h2>
+                <div class="comparison-container">
+                    <div class="comparison-card internet-card">
+                        <h3>🔌 The Internet</h3>
+                        <ul>
+                            <li>Global network of hardware</li>
+                            <li>Fiber optic undersea cables</li>
+                            <li>The physical foundation</li>
+                        </ul>
+                        <div class="card-metaphor">🛣️ Like the highway system</div>
+                    </div>
+                    <div class="vs-badge">VS</div>
+                    <div class="comparison-card web-card">
+                        <h3>🕸️ The WWW</h3>
+                        <ul>
+                            <li>System of linked documents</li>
+                            <li>Software protocol (HTTP)</li>
+                            <li>A service on the Internet</li>
+                        </ul>
+                        <div class="card-metaphor">🚗 Like cars on those highways</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: History -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-title">📜 The Birth of the Web</h2>
+                <div class="timeline" style="max-width: 800px; margin: 0 auto;">
+                    <div class="timeline-item">
+                        <span class="year">1969</span>
+                        <span><strong>ARPANET</strong>: The first computer-to-computer network goes live.</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="year">1989</span>
+                        <span><strong>Tim Berners-Lee</strong> proposes a global hypertext system at CERN.</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="year">1991</span>
+                        <span><strong>The first website</strong> is launched, changing the world forever.</span>
+                    </div>
+                </div>
+                <blockquote>"The Web does not just connect machines, it connects people."</blockquote>
+            </div>
+        </section>
+
+        <!-- Slide 5: The Three Pillars -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-title">🧱 The Three Pillars</h2>
+                <p class="slide-subtitle">The standard architecture of every frontend</p>
+                <div class="tech-stack">
+                    <div class="tech-card html-tech">
+                        <div class="tech-icon">&lt;HTML&gt;</div>
+                        <h3>Structure</h3>
+                        <p>The Skeleton.</p>
+                    </div>
+                    <div class="tech-card css-tech">
+                        <div class="tech-icon">{CSS}</div>
+                        <h3>Style</h3>
+                        <p>The Skin.</p>
+                    </div>
+                    <div class="tech-card js-tech">
+                        <div class="tech-icon">JS()</div>
+                        <h3>Behavior</h3>
+                        <p>The Brain.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Client-Server -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-title">🔄 The Request-Response Cycle</h2>
+                <div class="client-server-diagram">
+                    <div class="diagram-entity client">
+                        <div class="entity-icon">💻</div>
+                        <h3>Client</h3>
+                        <p>Browser (Request)</p>
+                    </div>
+                    <div class="diagram-flow">
+                        <div class="flow-arrow">⟷</div>
+                        <span>HTTP/HTTPS</span>
+                    </div>
+                    <div class="diagram-entity server">
+                        <div class="entity-icon">🖥️</div>
+                        <h3>Server</h3>
+                        <p>Host (Response)</p>
+                    </div>
+                </div>
+                <div class="protocol-info" style="margin-top: 2rem;">
+                    <span class="protocol-badge"><strong>HTTP</strong>: Plain Text (Fast)</span>
+                    <span class="protocol-badge"><strong>HTTPS</strong>: Encrypted (Secure)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Security & DNS -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-title">📡 How Computers Find Each Other</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <h3>IP Address</h3>
+                        <p>A unique number for every device on the internet (e.g., 142.250.72.110).</p>
+                    </div>
+                    <div class="objective-card">
+                        <h3>DNS</h3>
+                        <p>The phonebook of the web. Translates <code>google.com</code> into an IP.</p>
+                    </div>
+                </div>
+                <div class="note" style="margin-top: 2rem; text-align: center; color: var(--primary);">
+                    💡 Your browser is a translator between human names and computer numbers.
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: Next Up -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content summary-slide">
+                <h2 class="slide-title">🚀 Architecture Mastered</h2>
+                <div class="end-decoration">
+                    <span class="thank-you">You now know how the web works.</span>
+                    <span class="questions">Next: Module 3 - Intro to HTML</span>
+                </div>
+                <div class="demo-steps" style="margin-top: 3rem;">
+                    <div class="demo-step">
+                        <span class="step-number">GO</span>
+                        <p>Start building the skeleton of the web.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

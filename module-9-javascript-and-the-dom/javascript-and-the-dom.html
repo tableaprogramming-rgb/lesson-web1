@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 9: JavaScript and the DOM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body>
+    <!-- Home Button -->
+    <div class="course-nav home">
+        <a href="../index.html" class="course-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Home
+        </a>
+    </div>
+
+    <!-- Previous Lesson Button -->
+    <div class="course-nav prev">
+        <a href="../module-8-introduction-to-javascript/introduction-to-javascript.html" class="course-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Previous Lesson
+        </a>
+    </div>
+
+    <!-- Next Lesson Button -->
+    <div class="course-nav next">
+        <a href="../module-10-jquery-essentials/jquery-essentials.html" class="course-btn">
+            Next Lesson
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </a>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- Slides Container -->
+    <div class="slides-container" id="slidesContainer">
+
+        <!-- Slide 1: Title -->
+        <section class="slide active" data-slide="1">
+            <div class="slide-content title-slide">
+                <div class="title-decoration">
+                    <span class="tag">Module 09</span>
+                </div>
+                <h1 class="main-title">
+                    <span class="gradient-text">JavaScript and the DOM</span>
+                    <span class="subtitle">Making Pages Interactive</span>
+                </h1>
+                <p class="presenter-info">Connecting JavaScript to HTML Elements</p>
+                <div class="animated-icons">
+                    <div class="floating-icon icon-1">🌳</div>
+                    <div class="floating-icon icon-2">🖱️</div>
+                    <div class="floating-icon icon-3">✨</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: Learning Objectives -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-title">🎯 Learning Objectives</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card" style="--delay: 0s;">
+                        <div class="objective-icon">🌳</div>
+                        <h3>Understand the DOM</h3>
+                        <p>HTML as a tree of objects</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.1s;">
+                        <div class="objective-icon">🔍</div>
+                        <h3>Select Elements</h3>
+                        <p>Find elements in the page</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.2s;">
+                        <div class="objective-icon">✏️</div>
+                        <h3>Manipulate Content</h3>
+                        <p>Change text and HTML dynamically</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.3s;">
+                        <div class="objective-icon">🎨</div>
+                        <h3>Modify Styles</h3>
+                        <p>Change CSS from JavaScript</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.4s;">
+                        <div class="objective-icon">🖱️</div>
+                        <h3>Handle Events</h3>
+                        <p>Respond to user interactions</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.5s;">
+                        <div class="objective-icon">🆕</div>
+                        <h3>Create Elements</h3>
+                        <p>Dynamically generate HTML</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: What is the DOM? -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-title">🌳 The Document Object Model (DOM)</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>🏗️</span>
+                        <div>
+                            <strong>DOM is a Tree</strong>
+                            <p>Browser converts HTML into a tree structure. Each element becomes an object you can access and manipulate.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>📦</span>
+                        <div>
+                            <strong>Everything is an Object</strong>
+                            <p>HTML elements, attributes, text are all objects. Access via JavaScript variables and properties.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🔗</span>
+                        <div>
+                            <strong>Relationships Matter</strong>
+                            <p>Parent, child, sibling relationships. Navigate tree: <code>element.parentElement</code>, <code>element.children</code>.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>⚡</span>
+                        <div>
+                            <strong>Live Connection</strong>
+                            <p>Changes via JavaScript update page instantly. Modify one element, entire page reflects change.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DOM Visualization -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">DOM Tree Structure</h4>
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; font-size: 0.8rem; font-family: 'Fira Code', monospace;">
+                        <div style="color: rgba(99, 102, 241, 1); margin-bottom: 0.5rem;">document</div>
+                        <div style="margin-left: 1.5rem; color: rgba(168, 85, 247, 1); margin-bottom: 0.5rem;">├── &lt;html&gt;</div>
+                        <div style="margin-left: 3rem; color: rgba(236, 72, 153, 1); margin-bottom: 0.5rem;">├── &lt;head&gt;</div>
+                        <div style="margin-left: 4.5rem; color: var(--text-secondary); margin-bottom: 0.5rem;">│   └── &lt;title&gt; "Page Title"</div>
+                        <div style="margin-left: 3rem; color: rgba(6, 182, 212, 1); margin-bottom: 0.5rem;">├── &lt;body&gt;</div>
+                        <div style="margin-left: 4.5rem; color: var(--text-secondary); margin-bottom: 0.5rem;">│   ├── &lt;h1&gt; "Welcome"</div>
+                        <div style="margin-left: 4.5rem; color: var(--text-secondary);">│   └── &lt;p&gt; "Content"</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Selecting Elements -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-title">🔍 Selecting Elements: Finding What to Modify</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>🎯</span>
+                        <div>
+                            <strong>getElementById</strong>
+                            <p><code>document.getElementById("myId")</code> selects element by ID. Fast, single element.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🔎</span>
+                        <div>
+                            <strong>querySelector</strong>
+                            <p><code>document.querySelector(".myClass")</code> uses CSS selectors. Modern, recommended approach.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>📋</span>
+                        <div>
+                            <strong>querySelectorAll</strong>
+                            <p><code>document.querySelectorAll("p")</code> selects multiple elements. Returns NodeList (like array).</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>💡</span>
+                        <div>
+                            <strong>Best Practice</strong>
+                            <p>Use querySelector/querySelectorAll for consistency. They support all CSS selectors.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Selection Examples -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <!-- Code Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Selection Code</h4>
+                        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden;">
+                            <div style="background: rgba(99, 102, 241, 0.2); padding: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; font-family: 'Fira Code', monospace;">
+                                selection.js
+                            </div>
+                            <pre style="padding: 1rem; margin: 0; font-size: 0.7rem; overflow-x: auto; color: var(--text-primary);"><code style="font-family: 'Fira Code', monospace;">// By ID
+const header =
+  document.getElementById(
+    "header"
+  );
+
+// By class (first only)
+const btn =
+  document.querySelector(
+    ".primary-btn"
+  );
+
+// All paragraphs
+const paras =
+  document.querySelectorAll(
+    "p"
+  );
+
+// Complex selector
+const content =
+  document.querySelector(
+    "main .article p"
+  );</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Results Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">What It Selects</h4>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px;">
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.85rem;">
+                                <div style="border-left: 3px solid rgba(99, 102, 241, 0.8); padding-left: 1rem;">
+                                    <strong style="color: rgba(99, 102, 241, 1);">getElementById</strong><br>
+                                    <span style="color: var(--text-secondary); font-size: 0.75rem;">Single element or null</span>
+                                </div>
+                                <div style="border-left: 3px solid rgba(168, 85, 247, 0.8); padding-left: 1rem;">
+                                    <strong style="color: rgba(168, 85, 247, 1);">querySelector</strong><br>
+                                    <span style="color: var(--text-secondary); font-size: 0.75rem;">First match or null</span>
+                                </div>
+                                <div style="border-left: 3px solid rgba(236, 72, 153, 0.8); padding-left: 1rem;">
+                                    <strong style="color: rgba(236, 72, 153, 1);">querySelectorAll</strong><br>
+                                    <span style="color: var(--text-secondary); font-size: 0.75rem;">All matches (NodeList)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Manipulating Content & Styles -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-title">✏️ Manipulating Content & Styles</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>📝</span>
+                        <div>
+                            <strong>textContent</strong>
+                            <p>Get/set plain text. Safe, no HTML parsing. Use for text-only content.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🏷️</span>
+                        <div>
+                            <strong>innerHTML</strong>
+                            <p>Get/set HTML (including tags). Powerful but be careful with user input (XSS risk).</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🎨</span>
+                        <div>
+                            <strong>classList for Classes</strong>
+                            <p><code>element.classList.add("active")</code>, <code>.remove()</code>, <code>.toggle()</code>. Preferred over inline styles.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>💻</span>
+                        <div>
+                            <strong>style Property</strong>
+                            <p><code>element.style.color = "red"</code>. Direct inline styling. Use classList instead when possible.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manipulation Examples -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <!-- Code Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Manipulation Code</h4>
+                        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden;">
+                            <div style="background: rgba(99, 102, 241, 0.2); padding: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; font-family: 'Fira Code', monospace;">
+                                manipulation.js
+                            </div>
+                            <pre style="padding: 1rem; margin: 0; font-size: 0.7rem; overflow-x: auto; color: var(--text-primary);"><code style="font-family: 'Fira Code', monospace;">// Change text
+para.textContent =
+  "New text";
+
+// Change HTML
+div.innerHTML =
+  "&lt;strong&gt;Bold&lt;/strong&gt;";
+
+// Add class
+btn.classList.add(
+  "active"
+);
+
+// Toggle class
+element.classList
+  .toggle("hidden");
+
+// Inline style
+element.style.backgroundColor
+  = "blue";</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Live Example Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Live Demo</h4>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px;">
+                            <div style="margin-bottom: 1rem;">
+                                <p style="color: var(--text-primary); margin-bottom: 0.5rem;">This text can change</p>
+                                <button onclick="this.previousElementSibling.textContent = 'Text changed!'" style="background: rgba(99, 102, 241, 0.8); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">
+                                    Change Text
+                                </button>
+                            </div>
+
+                            <div style="margin-bottom: 1rem;">
+                                <div id="styleDemo" style="background: rgba(168, 85, 247, 0.3); padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem; text-align: center;">Normal</div>
+                                <button onclick="document.getElementById('styleDemo').classList.toggle('highlight')" style="background: rgba(168, 85, 247, 0.8); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-size: 0.8rem; width: 100%;">
+                                    Toggle Class
+                                </button>
+                            </div>
+                        </div>
+                        <style>
+                            .highlight {
+                                background: rgba(236, 72, 153, 0.6) !important;
+                            }
+                        </style>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Event Handling -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-title">🖱️ Event Handling: Responding to Users</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>🎯</span>
+                        <div>
+                            <strong>What are Events?</strong>
+                            <p>Things that happen: click, submit, keydown, mouseover. JavaScript responds with event listeners.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>👂</span>
+                        <div>
+                            <strong>addEventListener</strong>
+                            <p><code>element.addEventListener("click", function)</code>. Modern way. Multiple listeners supported.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>📋</span>
+                        <div>
+                            <strong>Common Events</strong>
+                            <p>click, submit, input, keydown, keyup, change, mouseover, mouseout, focus, blur</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🚫</span>
+                        <div>
+                            <strong>Prevent Default</strong>
+                            <p><code>event.preventDefault()</code> stops default behavior (form submission, link navigation).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Examples -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <!-- Code Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Event Code</h4>
+                        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden;">
+                            <div style="background: rgba(99, 102, 241, 0.2); padding: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; font-family: 'Fira Code', monospace;">
+                                events.js
+                            </div>
+                            <pre style="padding: 1rem; margin: 0; font-size: 0.7rem; overflow-x: auto; color: var(--text-primary);"><code style="font-family: 'Fira Code', monospace;">// Click event
+btn.addEventListener(
+  "click",
+  () => {
+    console.log("Clicked!");
+  }
+);
+
+// Form submit
+form.addEventListener(
+  "submit",
+  (e) => {
+    e.preventDefault();
+    console.log("Submitted");
+  }
+);
+
+// Input typing
+input.addEventListener(
+  "input",
+  (e) => {
+    console.log(e.target
+      .value);
+  }
+);</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Demo Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Interactive Demo</h4>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px;">
+                            <button id="eventBtn" style="background: rgba(99, 102, 241, 0.8); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 4px; cursor: pointer; margin-bottom: 1rem; width: 100%; font-weight: 600;">
+                                Click me!
+                            </button>
+
+                            <input id="eventInput" type="text" placeholder="Type something..." style="width: 100%; padding: 0.5rem; border-radius: 4px; border: none; background: rgba(255,255,255,0.9); color: #000; margin-bottom: 1rem;">
+
+                            <div id="eventOutput" style="background: rgba(236, 72, 153, 0.3); padding: 1rem; border-radius: 4px; min-height: 60px; text-align: center;">
+                                Events will show here
+                            </div>
+                        </div>
+                        <script>
+                            document.getElementById("eventBtn").addEventListener("click", function() {
+                                document.getElementById("eventOutput").textContent = "Button clicked! ✓";
+                            });
+                            document.getElementById("eventInput").addEventListener("input", function(e) {
+                                document.getElementById("eventOutput").textContent = "You typed: " + e.target.value;
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Creating & Removing Elements -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-title">🆕 Creating & Removing Elements Dynamically</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>🏗️</span>
+                        <div>
+                            <strong>createElement</strong>
+                            <p><code>document.createElement("div")</code> creates new element. Not in DOM yet—must append.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>📍</span>
+                        <div>
+                            <strong>appendChild & insertBefore</strong>
+                            <p><code>parent.appendChild(child)</code> adds element. <code>insertBefore</code> adds before specific element.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🗑️</span>
+                        <div>
+                            <strong>remove</strong>
+                            <p><code>element.remove()</code> deletes from DOM. Or <code>parent.removeChild(child)</code>.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>💡</span>
+                        <div>
+                            <strong>Real Use Case</strong>
+                            <p>Todo lists, dynamic lists, components. Build UIs that respond to user actions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Creating Elements Example -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <!-- Code Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Creation Code</h4>
+                        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden;">
+                            <div style="background: rgba(99, 102, 241, 0.2); padding: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; font-family: 'Fira Code', monospace;">
+                                create-elements.js
+                            </div>
+                            <pre style="padding: 1rem; margin: 0; font-size: 0.7rem; overflow-x: auto; color: var(--text-primary);"><code style="font-family: 'Fira Code', monospace;">// Create element
+const li =
+  document.createElement(
+    "li"
+  );
+
+// Set content
+li.textContent =
+  "New item";
+
+// Add class
+li.classList.add(
+  "item"
+);
+
+// Add to page
+const list =
+  document.querySelector(
+    "ul"
+  );
+list.appendChild(li);
+
+// Remove
+li.remove();</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Demo Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Todo List Demo</h4>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px;">
+                            <input id="todoInput" type="text" placeholder="Add a todo..." style="width: 100%; padding: 0.5rem; border-radius: 4px; border: none; background: rgba(255,255,255,0.9); color: #000; margin-bottom: 0.75rem;">
+
+                            <button id="addTodo" style="background: rgba(99, 102, 241, 0.8); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; margin-bottom: 1rem; width: 100%; font-weight: 600;">
+                                Add Item
+                            </button>
+
+                            <ul id="todoList" style="list-style: none; padding: 0; margin: 0;">
+                                <li style="background: rgba(168, 85, 247, 0.3); padding: 0.5rem; border-radius: 4px; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+                                    Sample item
+                                    <button onclick="this.parentElement.remove()" style="background: rgba(239, 68, 68, 0.8); color: white; border: none; padding: 0.2rem 0.5rem; border-radius: 2px; cursor: pointer; font-size: 0.7rem;">×</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <script>
+                            document.getElementById("addTodo").addEventListener("click", function() {
+                                const input = document.getElementById("todoInput");
+                                const list = document.getElementById("todoList");
+                                if (input.value.trim()) {
+                                    const li = document.createElement("li");
+                                    li.style.cssText = "background: rgba(168, 85, 247, 0.3); padding: 0.5rem; border-radius: 4px; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;";
+                                    li.textContent = input.value;
+                                    const btn = document.createElement("button");
+                                    btn.textContent = "×";
+                                    btn.style.cssText = "background: rgba(239, 68, 68, 0.8); color: white; border: none; padding: 0.2rem 0.5rem; border-radius: 2px; cursor: pointer; font-size: 0.7rem;";
+                                    btn.onclick = function() { li.remove(); };
+                                    li.appendChild(btn);
+                                    list.appendChild(li);
+                                    input.value = "";
+                                }
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: Event Delegation & Advanced Patterns -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content">
+                <h2 class="slide-title">🎯 Event Delegation & Best Practices</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>🔄</span>
+                        <div>
+                            <strong>Event Delegation</strong>
+                            <p>Listen on parent for events from children. Perfect for dynamic elements added later.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🌊</span>
+                        <div>
+                            <strong>Event Bubbling</strong>
+                            <p>Events bubble up from child to parent. Use <code>event.target</code> to see which element triggered.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>⚡</span>
+                        <div>
+                            <strong>Performance</strong>
+                            <p>Delegate instead of adding listeners to each element. One listener on parent > many on children.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>💡</span>
+                        <div>
+                            <strong>Practical Tips</strong>
+                            <p>Store references to elements. Use data attributes for info. Keep event handlers small and focused.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Best Practices Info -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">Best Practices Summary</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div style="background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.4); padding: 1rem; border-radius: 8px; font-size: 0.8rem;">
+                            <strong style="color: rgba(16, 185, 129, 1);">✅ Do:</strong>
+                            <ul style="margin-top: 0.5rem; padding-left: 1.2rem; color: var(--text-secondary);">
+                                <li>Use addEventListener</li>
+                                <li>Use event delegation</li>
+                                <li>Cache DOM references</li>
+                                <li>Use classList for styles</li>
+                                <li>Handle errors gracefully</li>
+                            </ul>
+                        </div>
+                        <div style="background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.4); padding: 1rem; border-radius: 8px; font-size: 0.8rem;">
+                            <strong style="color: rgba(239, 68, 68, 1);">❌ Don't:</strong>
+                            <ul style="margin-top: 0.5rem; padding-left: 1.2rem; color: var(--text-secondary);">
+                                <li>Use inline event handlers</li>
+                                <li>Query DOM repeatedly</li>
+                                <li>Modify innerHTML with user input</li>
+                                <li>Use inline styles (use classes)</li>
+                                <li>Ignore performance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 9: Summary -->
+        <section class="slide" data-slide="9">
+            <div class="slide-content summary-slide">
+                <h2 class="slide-title">🚀 DOM Mastery Complete</h2>
+                <div class="end-decoration">
+                    <span class="thank-you">You can now manipulate web pages with JavaScript</span>
+                    <span class="questions">Next: Module 10 - jQuery Essentials</span>
+                </div>
+                <div class="demo-steps" style="margin-top: 3rem;">
+                    <div class="demo-step">
+                        <span class="step-number">→</span>
+                        <p>Understand DOM as tree of objects</p>
+                    </div>
+                    <div class="demo-step">
+                        <span class="step-number">→</span>
+                        <p>Select elements with querySelector</p>
+                    </div>
+                    <div class="demo-step">
+                        <span class="step-number">→</span>
+                        <p>Manipulate content and styles</p>
+                    </div>
+                    <div class="demo-step">
+                        <span class="step-number">→</span>
+                        <p>Handle events and create dynamic UIs</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Slide Navigation -->
+    <nav class="slide-nav">
+        <button class="nav-btn prev-btn" id="prevBtn">←</button>
+        <span class="slide-counter" id="slideCounter">1 / 9</span>
+        <button class="nav-btn next-btn" id="nextBtn">→</button>
+    </nav>
+
+    <!-- Keyboard Hint -->
+    <div class="keyboard-hint">
+        <span>Use <kbd>←</kbd> <kbd>→</kbd> or <kbd>Space</kbd></span>
+    </div>
+
+    <!-- Script -->
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

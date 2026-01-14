@@ -11,14 +11,18 @@
         rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
     <style>
+        body {
+            overflow: auto;
+        }
+
         .home-container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 4rem 2rem;
-            min-height: 100vh;
+            padding: 4rem 2rem 2rem 2rem;
+            min-height: auto;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
         }
 
         .home-header {
@@ -33,8 +37,8 @@
 
         .course-description {
             color: var(--text-secondary);
-            font-size: 1.2rem;
-            max-width: 600px;
+            font-size: 1.6rem;
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -91,7 +95,7 @@
         }
 
         .module-card h2 {
-            font-size: 1.8rem;
+            font-size: 2.22rem;
             display: flex;
             align-items: center;
             gap: 0.75rem;
@@ -99,6 +103,7 @@
 
         .module-card p {
             color: var(--text-secondary);
+            font-size: 1.5rem;
             line-height: 1.6;
         }
 
@@ -161,11 +166,12 @@
                 </div>
             </a>
 
-            <!-- Module 1: Introduction -->
-            <a href="module-1-introduction/introduction.html" class="module-card">
-                <div class="module-status">Available Now</div>
-                <h2><span>🌍</span> Introduction</h2>
-                <p>Explore the history of the web, understand infrastructure, and write your very first HTML tags.</p>
+            <!-- Module 1: Digital Literacy -->
+            <a href="module-1-computer-digital-literacy/digital-literacy.html" class="module-card">
+                <div class="module-status">New Module</div>
+                <h2><span>💻</span> Digital Literacy</h2>
+                <p>Master the basics: file management, extensions, keyboard shortcuts, and professional productivity.
+                </p>
                 <div class="module-footer">
                     Start Learning
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -176,23 +182,157 @@
                 </div>
             </a>
 
-            <!-- Module 2: CSS Level Up (Placeholder) -->
-            <div class="module-card coming-soon">
-                <div class="module-status" style="color: var(--text-muted); background: rgba(255,255,255,0.05);">Coming
-                    Soon</div>
-                <h2><span>🎨</span> Styling with CSS</h2>
-                <p>Learn how to make your websites look stunning using modern CSS techniques, flexbox, and grid.</p>
-                <div class="module-footer">Locked</div>
-            </div>
+            <!-- Module 2: Introduction -->
+            <a href="module-2-introduction-to-web-architecture/introduction.html" class="module-card">
+                <div class="module-status">Available Now</div>
+                <h2><span>🌍</span> Architecture</h2>
+                <p>Explore the history of the web, the client-server model, and infrastructure.</p>
+                <div class="module-footer">
+                    Start Learning
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+            </a>
 
-            <!-- Module 3: Interactivity (Placeholder) -->
-            <div class="module-card coming-soon">
-                <div class="module-status" style="color: var(--text-muted); background: rgba(255,255,255,0.05);">Coming
-                    Soon</div>
-                <h2><span>⚡</span> Dynamic JavaScript</h2>
-                <p>Bring your pages to life with interactivity, DOM manipulation, and logic flow.</p>
-                <div class="module-footer">Locked</div>
-            </div>
+            <!-- Module 3: HTML Intro -->
+            <a href="module-3-introduction-to-html/introduction-to-html.html" class="module-card">
+                <div class="module-status">Available Now</div>
+                <h2><span>📄</span> Intro to HTML</h2>
+                <p>Master the foundations of the web: tags, anatomy, and the basic document skeleton.</p>
+                <div class="module-footer">
+                    Start Learning
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+            </a>
+        </div>
+
+        <div class="curriculum-grid" style="margin-top: 2rem;">
+            <!-- Module 4: HTML Deep Dive -->
+            <a href="module-4-html-deep-dive/html-deep-dive.html" class="module-card">
+                <div class="module-status">Available Now</div>
+                <h2><span>🏗️</span> HTML Deep Dive</h2>
+                <p>Master advanced HTML: lists, tables, forms, semantic markup, and multimedia elements.</p>
+                <div class="module-footer">
+                    Start Learning
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Module 5: CSS Fundamentals -->
+            <a href="module-5-css-fundamentals/css-fundamentals.html" class="module-card">
+                <div class="module-status">Available Now</div>
+                <h2><span>🎨</span> CSS Fundamentals</h2>
+                <p>Learn selectors, specificity, the box model, typography, colors, and backgrounds.</p>
+                <div class="module-footer">
+                    Start Learning
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Module 6: CSS Layout Mastery -->
+            <a href="module-6-css-layout-mastery/css-layout-mastery.html" class="module-card">
+                <div class="module-status">Available Now</div>
+                <h2><span>📐</span> CSS Layout Mastery</h2>
+                <p>Master positioning, Flexbox, CSS Grid, responsive design, and media queries.</p>
+                <div class="module-footer">
+                    Start Learning
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Module 7: CSS Frameworks -->
+            <a href="module-7-css-frameworks/css-frameworks.html" class="module-card">
+                <div class="module-status">Available Now</div>
+                <h2><span>⚡</span> CSS Frameworks</h2>
+                <p>Explore Bootstrap, Tailwind CSS, and other frameworks to accelerate development.</p>
+                <div class="module-footer">
+                    Start Learning
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Module 8: Introduction to JavaScript -->
+            <a href="module-8-introduction-to-javascript/introduction-to-javascript.html" class="module-card">
+                <div class="module-status">Available Now</div>
+                <h2><span>🧠</span> Intro to JavaScript</h2>
+                <p>Learn programming fundamentals: variables, functions, control flow, arrays, and objects.</p>
+                <div class="module-footer">
+                    Start Learning
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Module 9: JavaScript and the DOM -->
+            <a href="module-9-javascript-and-the-dom/javascript-and-the-dom.html" class="module-card">
+                <div class="module-status">Available Now</div>
+                <h2><span>🌳</span> JavaScript & DOM</h2>
+                <p>Connect JavaScript to HTML: select elements, manipulate content, handle events dynamically.</p>
+                <div class="module-footer">
+                    Start Learning
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Module 10: jQuery Essentials -->
+            <a href="module-10-jquery-essentials/jquery-essentials.html" class="module-card">
+                <div class="module-status">Available Now</div>
+                <h2><span>📚</span> jQuery Essentials</h2>
+                <p>Understand jQuery's role in web history and how to use it for DOM manipulation.</p>
+                <div class="module-footer">
+                    Start Learning
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Module 11: Capstone Project -->
+            <a href="module-11-capstone-project/capstone-project.html" class="module-card">
+                <div class="module-status">Final Project</div>
+                <h2><span>🏆</span> Capstone Project</h2>
+                <p>Build a complete, professional website using everything you've learned. Portfolio-ready work.</p>
+                <div class="module-footer">
+                    Start Building
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+            </a>
         </div>
     </div>
 </body>

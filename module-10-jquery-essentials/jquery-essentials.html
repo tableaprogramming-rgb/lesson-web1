@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 10: jQuery Essentials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body>
+    <!-- Home Button -->
+    <div class="course-nav home">
+        <a href="../index.html" class="course-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Home
+        </a>
+    </div>
+
+    <!-- Previous Lesson Button -->
+    <div class="course-nav prev">
+        <a href="../module-9-javascript-and-the-dom/javascript-and-the-dom.html" class="course-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Previous Lesson
+        </a>
+    </div>
+
+    <!-- Next Lesson Button -->
+    <div class="course-nav next">
+        <a href="../module-11-capstone-project/capstone-project.html" class="course-btn">
+            Next Lesson
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </a>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- Slides Container -->
+    <div class="slides-container" id="slidesContainer">
+
+        <!-- Slide 1: Title -->
+        <section class="slide active" data-slide="1">
+            <div class="slide-content title-slide">
+                <div class="title-decoration">
+                    <span class="tag">Module 10</span>
+                </div>
+                <h1 class="main-title">
+                    <span class="gradient-text">jQuery Essentials</span>
+                    <span class="subtitle">DOM Manipulation Made Easy</span>
+                </h1>
+                <p class="presenter-info">A Historical Look at jQuery and Modern Alternatives</p>
+                <div class="animated-icons">
+                    <div class="floating-icon icon-1">📚</div>
+                    <div class="floating-icon icon-2">⚡</div>
+                    <div class="floating-icon icon-3">🔧</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: Learning Objectives -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-title">🎯 Learning Objectives</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card" style="--delay: 0s;">
+                        <div class="objective-icon">🤔</div>
+                        <h3>What is jQuery?</h3>
+                        <p>History and purpose</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.1s;">
+                        <div class="objective-icon">$</div>
+                        <h3>jQuery Basics</h3>
+                        <p>The $() function and syntax</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.2s;">
+                        <div class="objective-icon">🎨</div>
+                        <h3>DOM Manipulation</h3>
+                        <p>Selecting, modifying elements</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.3s;">
+                        <div class="objective-icon">🎬</div>
+                        <h3>Effects & Animations</h3>
+                        <p>Fade, slide, animate</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.4s;">
+                        <div class="objective-icon">🎯</div>
+                        <h3>Event Handling</h3>
+                        <p>jQuery event methods</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.5s;">
+                        <div class="objective-icon">🔄</div>
+                        <h3>jQuery vs Modern JS</h3>
+                        <p>When and why</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: What is jQuery? -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-title">📚 What is jQuery?</h2>
+                <div class="comparison-container">
+                    <div class="comparison-card internet-card">
+                        <h3>✅ jQuery</h3>
+                        <ul style="font-size: 0.9rem;">
+                            <li>Simplifies DOM manipulation</li>
+                            <li>Cross-browser compatibility</li>
+                            <li>Shorter syntax with $()</li>
+                            <li>Method chaining</li>
+                            <li>Pre-built utilities</li>
+                        </ul>
+                        <div class="card-metaphor">Write less, do more</div>
+                    </div>
+                    <div class="vs-badge">→</div>
+                    <div class="comparison-card web-card">
+                        <h3>🔄 Modern JS</h3>
+                        <ul style="font-size: 0.9rem;">
+                            <li>Native browser APIs</li>
+                            <li>No library needed</li>
+                            <li>querySelector, fetch built-in</li>
+                            <li>Smaller bundle size</li>
+                            <li>Modern frameworks better</li>
+                        </ul>
+                        <div class="card-metaphor">Standards evolved</div>
+                    </div>
+                </div>
+
+                <!-- jQuery Timeline -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">jQuery Timeline</h4>
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; font-size: 0.85rem;">
+                        <div style="display: flex; gap: 2rem; overflow-x: auto; padding-bottom: 0.5rem;">
+                            <div style="min-width: 120px; text-align: center; border: 1px solid rgba(99, 102, 241, 0.5); padding: 0.75rem; border-radius: 4px;">
+                                <strong style="color: rgba(99, 102, 241, 1);">2006</strong><br>
+                                <span style="font-size: 0.75rem; color: var(--text-secondary);">Released</span>
+                            </div>
+                            <div style="min-width: 120px; text-align: center; border: 1px solid rgba(168, 85, 247, 0.5); padding: 0.75rem; border-radius: 4px;">
+                                <strong style="color: rgba(168, 85, 247, 1);">2010-15</strong><br>
+                                <span style="font-size: 0.75rem; color: var(--text-secondary);">Peak</span>
+                            </div>
+                            <div style="min-width: 120px; text-align: center; border: 1px solid rgba(236, 72, 153, 0.5); padding: 0.75rem; border-radius: 4px;">
+                                <strong style="color: rgba(236, 72, 153, 1);">2015+</strong><br>
+                                <span style="font-size: 0.75rem; color: var(--text-secondary);">Declining</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: jQuery Syntax Basics -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-title">$ jQuery Syntax & Basics</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>$</span>
+                        <div>
+                            <strong>The $ Function</strong>
+                            <p>$() selects elements. $(".class"), $("#id"), $("p"). Returns jQuery object with chainable methods.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🔗</span>
+                        <div>
+                            <strong>Method Chaining</strong>
+                            <p>Chain methods together: $("p").text("Hello").css("color", "red").addClass("highlight")</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>📋</span>
+                        <div>
+                            <strong>Document Ready</strong>
+                            <p>$(document).ready(fn) or $(fn). Waits for page load before running jQuery code.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>⚙️</span>
+                        <div>
+                            <strong>jQuery vs JavaScript</strong>
+                            <p>jQuery: $("p").text("Hello"). JS: document.querySelector("p").textContent = "Hello"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison Example -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <!-- jQuery Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">jQuery</h4>
+                        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden;">
+                            <div style="background: rgba(99, 102, 241, 0.2); padding: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; font-family: 'Fira Code', monospace;">
+                                jquery.js
+                            </div>
+                            <pre style="padding: 1rem; margin: 0; font-size: 0.7rem; overflow-x: auto; color: var(--text-primary);"><code style="font-family: 'Fira Code', monospace;">$(document).ready(fn(){
+  // Select
+  $(".highlight")
+    .text("Hello")
+    .css("color", "red")
+    .addClass("active");
+
+  // Event
+  $("button")
+    .click(function() {
+      alert("Clicked!");
+    });
+
+  // Effects
+  $("p").fadeIn();
+  $(".box").slideToggle();
+});</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Modern JS Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Modern JavaScript</h4>
+                        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden;">
+                            <div style="background: rgba(99, 102, 241, 0.2); padding: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; font-family: 'Fira Code', monospace;">
+                                modern.js
+                            </div>
+                            <pre style="padding: 1rem; margin: 0; font-size: 0.7rem; overflow-x: auto; color: var(--text-primary);"><code style="font-family: 'Fira Code', monospace;">document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+    // Select
+    const el =
+      document.querySelector(
+        ".highlight"
+      );
+    el.textContent = "Hello";
+    el.style.color = "red";
+    el.classList.add(
+      "active"
+    );
+
+    // Event
+    document.querySelector(
+      "button"
+    ).addEventListener(
+      "click", () =>
+        alert("Clicked!")
+    );
+  }
+);</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: jQuery DOM Manipulation -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-title">🎨 jQuery DOM Manipulation</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>📝</span>
+                        <div>
+                            <strong>text() and html()</strong>
+                            <p>$("p").text("Hello") gets/sets text. $("p").html("<strong>Bold</strong>") gets/sets HTML.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🏷️</span>
+                        <div>
+                            <strong>addClass, removeClass, toggleClass</strong>
+                            <p>$("p").addClass("active") adds class. removeClass removes. toggleClass toggles.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🔧</span>
+                        <div>
+                            <strong>attr() and css()</strong>
+                            <p>$("a").attr("href", "url") gets/sets attributes. $("p").css("color", "red") sets styles.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>📦</span>
+                        <div>
+                            <strong>append, prepend, remove</strong>
+                            <p>$("ul").append("<li>New</li>") adds. remove() deletes. Building dynamic content.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- jQuery Effects -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">jQuery Effects & Animations</h4>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                        <div style="background: rgba(99, 102, 241, 0.2); border: 1px solid rgba(99, 102, 241, 0.4); padding: 1rem; border-radius: 8px; text-align: center;">
+                            <strong style="font-size: 0.9rem;">Fade</strong><br>
+                            <span style="font-size: 0.75rem; color: var(--text-secondary);">fadeIn(), fadeOut(), fadeToggle()</span>
+                        </div>
+                        <div style="background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.4); padding: 1rem; border-radius: 8px; text-align: center;">
+                            <strong style="font-size: 0.9rem;">Slide</strong><br>
+                            <span style="font-size: 0.75rem; color: var(--text-secondary);">slideDown(), slideUp(), slideToggle()</span>
+                        </div>
+                        <div style="background: rgba(236, 72, 153, 0.2); border: 1px solid rgba(236, 72, 153, 0.4); padding: 1rem; border-radius: 8px; text-align: center;">
+                            <strong style="font-size: 0.9rem;">Animate</strong><br>
+                            <span style="font-size: 0.75rem; color: var(--text-secondary);">animate({left: "100px"})</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: jQuery Events & AJAX -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-title">🎯 jQuery Events & AJAX</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>🖱️</span>
+                        <div>
+                            <strong>Event Methods</strong>
+                            <p>$("button").click(fn), .hover(fn1, fn2), .submit(fn), .on("event", fn)</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🌐</span>
+                        <div>
+                            <strong>AJAX Requests</strong>
+                            <p>$.get(url, fn), $.post(url, data, fn), $.ajax({...}). Fetch data without refresh.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🔄</span>
+                        <div>
+                            <strong>Deferred/Promises</strong>
+                            <p>jQuery AJAX returns promise-like object. .done(), .fail(), .always() for callbacks.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>⚠️</span>
+                        <div>
+                            <strong>Modern Alternative</strong>
+                            <p>Fetch API replaces jQuery AJAX. Promises/async-await more standard now.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison Chart -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">jQuery vs Fetch API</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div style="background: rgba(99, 102, 241, 0.2); border: 1px solid rgba(99, 102, 241, 0.4); padding: 1rem; border-radius: 8px; font-size: 0.8rem;">
+                            <strong style="color: rgba(99, 102, 241, 1);">jQuery AJAX</strong><br>
+                            <span style="color: var(--text-secondary); font-family: 'Fira Code', monospace;">$.get(url, callback)</span>
+                        </div>
+                        <div style="background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.4); padding: 1rem; border-radius: 8px; font-size: 0.8rem;">
+                            <strong style="color: rgba(168, 85, 247, 1);">Fetch API</strong><br>
+                            <span style="color: var(--text-secondary); font-family: 'Fira Code', monospace;">fetch(url).then()</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: When to Use jQuery -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-title">🤔 When to Use jQuery</h2>
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <!-- Use jQuery -->
+                        <div style="background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.5); padding: 1.5rem; border-radius: 8px;">
+                            <h3 style="color: rgba(16, 185, 129, 1); margin-bottom: 1rem;">✅ Use jQuery</h3>
+                            <ul style="font-size: 0.85rem; padding-left: 1.2rem; color: var(--text-secondary);">
+                                <li>Legacy projects requiring it</li>
+                                <li>Small scripts/plugins</li>
+                                <li>Projects already using jQuery</li>
+                                <li>Learning about libraries</li>
+                                <li>Quick prototyping</li>
+                            </ul>
+                        </div>
+
+                        <!-- Use Modern JS -->
+                        <div style="background: rgba(99, 102, 241, 0.2); border: 1px solid rgba(99, 102, 241, 0.5); padding: 1.5rem; border-radius: 8px;">
+                            <h3 style="color: rgba(99, 102, 241, 1); margin-bottom: 1rem;">✅ Use Modern JS</h3>
+                            <ul style="font-size: 0.85rem; padding-left: 1.2rem; color: var(--text-secondary);">
+                                <li>New projects</li>
+                                <li>Performance-critical sites</li>
+                                <li>React, Vue, Angular apps</li>
+                                <li>Mobile web apps</li>
+                                <li>Industry standard now</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 1.5rem; background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; text-align: center;">
+                        <strong style="color: rgba(236, 72, 153, 1);">Bottom Line:</strong>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-secondary);">
+                            Master vanilla JavaScript first, then learn frameworks. jQuery is historical—understand it but don't rely on it for new work.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: jQuery Plugins & Ecosystem -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content">
+                <h2 class="slide-title">🔧 jQuery Plugins & Ecosystem</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>📦</span>
+                        <div>
+                            <strong>jQuery Plugins</strong>
+                            <p>Thousands of plugins extend jQuery. Sliders, lightboxes, form validation, etc. Thriving ecosystem.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>⚠️</span>
+                        <div>
+                            <strong>Quality Varies</strong>
+                            <p>Some plugins outdated, unmaintained, or poorly written. Check documentation and reviews before using.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🔄</span>
+                        <div>
+                            <strong>Modern Alternatives</strong>
+                            <p>Most plugins replaced by modern JS libraries or framework components. Better performance, maintenance.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>📚</span>
+                        <div>
+                            <strong>Learning from Plugins</strong>
+                            <p>jQuery plugins teach DOM manipulation patterns. Understanding plugins helps understand modern JavaScript.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Popular Plugins -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">Classic jQuery Plugins</h4>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                        <div style="background: rgba(99, 102, 241, 0.2); border: 1px solid rgba(99, 102, 241, 0.4); padding: 1rem; border-radius: 8px; font-size: 0.8rem;">
+                            <strong style="color: rgba(99, 102, 241, 1);">UI Components</strong>
+                            <ul style="margin-top: 0.5rem; padding-left: 1.2rem; color: var(--text-secondary);">
+                                <li>Sliders & carousels</li>
+                                <li>Lightboxes</li>
+                                <li>Modals</li>
+                            </ul>
+                        </div>
+                        <div style="background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.4); padding: 1rem; border-radius: 8px; font-size: 0.8rem;">
+                            <strong style="color: rgba(168, 85, 247, 1);">Utilities</strong>
+                            <ul style="margin-top: 0.5rem; padding-left: 1.2rem; color: var(--text-secondary);">
+                                <li>Form validation</li>
+                                <li>Infinite scroll</li>
+                                <li>Lazy loading</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 9: Summary -->
+        <section class="slide" data-slide="9">
+            <div class="slide-content summary-slide">
+                <h2 class="slide-title">🚀 jQuery to Modern JavaScript</h2>
+                <div class="end-decoration">
+                    <span class="thank-you">You understand jQuery and its historical role</span>
+                    <span class="questions">Next: Module 11 - Capstone Project</span>
+                </div>
+                <div class="demo-steps" style="margin-top: 3rem;">
+                    <div class="demo-step">
+                        <span class="step-number">→</span>
+                        <p>jQuery simplified DOM manipulation in 2006</p>
+                    </div>
+                    <div class="demo-step">
+                        <span class="step-number">→</span>
+                        <p>Method chaining and $() selector were innovative</p>
+                    </div>
+                    <div class="demo-step">
+                        <span class="step-number">→</span>
+                        <p>Modern JavaScript has caught up (querySelector, fetch, etc.)</p>
+                    </div>
+                    <div class="demo-step">
+                        <span class="step-number">→</span>
+                        <p>Today: Master vanilla JS first, use frameworks, understand jQuery legacy</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Slide Navigation -->
+    <nav class="slide-nav">
+        <button class="nav-btn prev-btn" id="prevBtn">←</button>
+        <span class="slide-counter" id="slideCounter">1 / 9</span>
+        <button class="nav-btn next-btn" id="nextBtn">→</button>
+    </nav>
+
+    <!-- Keyboard Hint -->
+    <div class="keyboard-hint">
+        <span>Use <kbd>←</kbd> <kbd>→</kbd> or <kbd>Space</kbd></span>
+    </div>
+
+    <!-- Script -->
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

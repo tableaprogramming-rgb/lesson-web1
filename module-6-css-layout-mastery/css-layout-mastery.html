@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 6: CSS Layout Mastery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body>
+    <!-- Home Button -->
+    <div class="course-nav home">
+        <a href="../index.html" class="course-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Home
+        </a>
+    </div>
+
+    <!-- Previous Lesson Button -->
+    <div class="course-nav prev">
+        <a href="../module-5-css-fundamentals/css-fundamentals.html" class="course-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Previous Lesson
+        </a>
+    </div>
+
+    <!-- Next Lesson Button -->
+    <div class="course-nav next">
+        <a href="../module-7-css-frameworks/css-frameworks.html" class="course-btn">
+            Next Lesson
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </a>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- Slides Container -->
+    <div class="slides-container" id="slidesContainer">
+
+        <!-- Slide 1: Title -->
+        <section class="slide active" data-slide="1">
+            <div class="slide-content title-slide">
+                <div class="title-decoration">
+                    <span class="tag">Module 06</span>
+                </div>
+                <h1 class="main-title">
+                    <span class="gradient-text">CSS Layout Mastery</span>
+                    <span class="subtitle">Positioning, Flexbox & Grid</span>
+                </h1>
+                <p class="presenter-info">Building Complex, Responsive Layouts</p>
+                <div class="animated-icons">
+                    <div class="floating-icon icon-1">📐</div>
+                    <div class="floating-icon icon-2">🎯</div>
+                    <div class="floating-icon icon-3">📦</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: Learning Objectives -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-title">🎯 Learning Objectives</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card" style="--delay: 0s;">
+                        <div class="objective-icon">📍</div>
+                        <h3>Master Positioning</h3>
+                        <p>Static, relative, absolute, fixed, sticky</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.1s;">
+                        <div class="objective-icon">🧩</div>
+                        <h3>Build with Flexbox</h3>
+                        <p>One-dimensional flexible layouts</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.2s;">
+                        <div class="objective-icon">🏗️</div>
+                        <h3>Design with Grid</h3>
+                        <p>Two-dimensional powerful layouts</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.3s;">
+                        <div class="objective-icon">📱</div>
+                        <h3>Responsive Design</h3>
+                        <p>Mobile, tablet, desktop optimization</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.4s;">
+                        <div class="objective-icon">🔍</div>
+                        <h3>Media Queries</h3>
+                        <p>Adapt layouts to different viewports</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.5s;">
+                        <div class="objective-icon">🎓</div>
+                        <h3>Choose the Right Tool</h3>
+                        <p>Know when to use each layout method</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Positioning -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-title">📍 Positioning: Five Methods</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>1️⃣</span>
+                        <div>
+                            <strong>Static (Default)</strong>
+                            <p>Elements flow normally. Top/left/right/bottom properties ignored. No z-index effect.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>2️⃣</span>
+                        <div>
+                            <strong>Relative</strong>
+                            <p>Positioned relative to its normal position. Element still occupies original space. Use for fine-tuning.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>3️⃣</span>
+                        <div>
+                            <strong>Absolute</strong>
+                            <p>Positioned relative to nearest positioned ancestor. Removed from document flow. Use for overlays, tooltips.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>4️⃣</span>
+                        <div>
+                            <strong>Fixed</strong>
+                            <p>Positioned relative to viewport. Doesn't scroll. Use for sticky headers, notifications.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>5️⃣</span>
+                        <div>
+                            <strong>Sticky</strong>
+                            <p>Hybrid of relative and fixed. Sticks when scrolling past threshold. Use for sticky headers, table headers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Examples with Code -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <!-- Code Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">CSS Code</h4>
+                        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden;">
+                            <div style="background: rgba(99, 102, 241, 0.2); padding: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; font-family: 'Fira Code', monospace;">
+                                positioning.css
+                            </div>
+                            <pre style="padding: 1rem; margin: 0; font-size: 0.7rem; overflow-x: auto; color: var(--text-primary);"><code style="font-family: 'Fira Code', monospace;">/* Relative positioning */
+.box-relative {
+  position: relative;
+  top: 10px;
+  left: 20px;
+}
+
+/* Absolute positioning */
+.container {
+  position: relative;
+}
+.box-absolute {
+  position: absolute;
+  top: 50px;
+  left: 30px;
+}
+
+/* Fixed positioning */
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Live Example Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Visual Examples</h4>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; position: relative; min-height: 200px;">
+                            <div style="background: rgba(99, 102, 241, 0.3); padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; font-size: 0.8rem;">
+                                Static (normal)
+                            </div>
+                            <div style="background: rgba(168, 85, 247, 0.3); padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; position: relative; top: 5px; left: 10px; font-size: 0.8rem;">
+                                Relative (offset)
+                            </div>
+                            <div style="border: 2px solid rgba(236, 72, 153, 0.5); padding: 0.5rem; position: relative; height: 60px; border-radius: 4px; font-size: 0.8rem;">
+                                Absolute container
+                                <div style="background: rgba(236, 72, 153, 0.3); padding: 0.3rem; position: absolute; bottom: 10px; right: 10px; font-size: 0.75rem; border-radius: 3px;">
+                                    Absolute child
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Flexbox Basics -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-title">🧩 Flexbox: One-Dimensional Layouts</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>📦</span>
+                        <div>
+                            <strong>Flex Container</strong>
+                            <p>Parent with <code>display: flex</code>. Direct children become flex items automatically.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🔀</span>
+                        <div>
+                            <strong>Main & Cross Axis</strong>
+                            <p>Main axis: default horizontal. Cross axis: perpendicular (vertical). Use <code>flex-direction</code> to change.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>📍</span>
+                        <div>
+                            <strong>justify-content</strong>
+                            <p>Aligns items along main axis. Values: <code>flex-start</code>, <code>center</code>, <code>space-between</code>, <code>space-around</code>.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>📏</span>
+                        <div>
+                            <strong>align-items</strong>
+                            <p>Aligns items along cross axis. Values: <code>flex-start</code>, <code>center</code>, <code>stretch</code>, <code>baseline</code>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Flexbox Examples with Code -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <!-- Code Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">CSS Code</h4>
+                        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden;">
+                            <div style="background: rgba(99, 102, 241, 0.2); padding: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; font-family: 'Fira Code', monospace;">
+                                flexbox.css
+                            </div>
+                            <pre style="padding: 1rem; margin: 0; font-size: 0.7rem; overflow-x: auto; color: var(--text-primary);"><code style="font-family: 'Fira Code', monospace;">/* Flex container */
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  height: 100px;
+}
+
+/* Flex item */
+.flex-item {
+  background: indigo;
+  padding: 10px 20px;
+  border-radius: 6px;
+  flex: 1;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Live Example Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Live Examples</h4>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <!-- Flex centered -->
+                            <div style="display: flex; justify-content: center; align-items: center; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; gap: 0.5rem; min-height: 60px;">
+                                <div style="background: rgba(99, 102, 241, 0.8); color: white; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.8rem;">Item 1</div>
+                                <div style="background: rgba(99, 102, 241, 0.8); color: white; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.8rem;">Item 2</div>
+                                <div style="background: rgba(99, 102, 241, 0.8); color: white; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.8rem;">Item 3</div>
+                            </div>
+
+                            <!-- Flex space-between -->
+                            <div style="display: flex; justify-content: space-between; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; gap: 0.5rem;">
+                                <div style="background: rgba(168, 85, 247, 0.8); color: white; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.8rem;">Start</div>
+                                <div style="background: rgba(168, 85, 247, 0.8); color: white; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.8rem;">End</div>
+                            </div>
+
+                            <!-- Flex wrapping -->
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px;">
+                                <div style="background: rgba(236, 72, 153, 0.8); color: white; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.8rem; flex: 1; min-width: 80px;">Item</div>
+                                <div style="background: rgba(236, 72, 153, 0.8); color: white; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.8rem; flex: 1; min-width: 80px;">Item</div>
+                                <div style="background: rgba(236, 72, 153, 0.8); color: white; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.8rem; flex: 1; min-width: 80px;">Item</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: CSS Grid Basics -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-title">🏗️ CSS Grid: Two-Dimensional Layouts</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>🎯</span>
+                        <div>
+                            <strong>Grid Container</strong>
+                            <p>Parent with <code>display: grid</code>. Direct children become grid items. Handles rows AND columns.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>📐</span>
+                        <div>
+                            <strong>Grid Template Columns</strong>
+                            <p><code>grid-template-columns: 200px 1fr 200px</code> creates 3 columns. Use <code>fr</code> for flexible units.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>📏</span>
+                        <div>
+                            <strong>Grid Template Rows</strong>
+                            <p>Define row heights. Example: <code>grid-template-rows: 100px auto 50px</code></p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🔲</span>
+                        <div>
+                            <strong>Grid Gap</strong>
+                            <p><code>gap: 20px</code> creates space between all items. Shorthand for column-gap and row-gap.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Grid Examples with Code -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <!-- Code Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">CSS Code</h4>
+                        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden;">
+                            <div style="background: rgba(99, 102, 241, 0.2); padding: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; font-family: 'Fira Code', monospace;">
+                                grid.css
+                            </div>
+                            <pre style="padding: 1rem; margin: 0; font-size: 0.7rem; overflow-x: auto; color: var(--text-primary);"><code style="font-family: 'Fira Code', monospace;">/* 3-column grid */
+.grid {
+  display: grid;
+  grid-template-columns:
+    200px 1fr 200px;
+  grid-template-rows:
+    100px auto 50px;
+  gap: 15px;
+}
+
+/* Grid item spanning */
+.header {
+  grid-column: 1 / -1;
+}
+
+.sidebar {
+  grid-column: 1;
+}
+
+.content {
+  grid-column: 2;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Live Example Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Live Examples</h4>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px;">
+                            <!-- 3-column grid layout -->
+                            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem;">
+                                <div style="background: rgba(99, 102, 241, 0.8); color: white; padding: 0.75rem; border-radius: 4px; text-align: center; font-size: 0.8rem;">Col 1</div>
+                                <div style="background: rgba(99, 102, 241, 0.8); color: white; padding: 0.75rem; border-radius: 4px; text-align: center; font-size: 0.8rem;">Col 2</div>
+                                <div style="background: rgba(99, 102, 241, 0.8); color: white; padding: 0.75rem; border-radius: 4px; text-align: center; font-size: 0.8rem;">Col 3</div>
+                            </div>
+
+                            <!-- Layout with header and sidebar -->
+                            <div style="display: grid; grid-template-columns: 150px 1fr; gap: 0.75rem;">
+                                <div style="background: rgba(168, 85, 247, 0.8); color: white; padding: 0.75rem; border-radius: 4px; text-align: center; font-size: 0.75rem;">Sidebar</div>
+                                <div style="background: rgba(168, 85, 247, 0.8); color: white; padding: 0.75rem; border-radius: 4px; text-align: center; font-size: 0.75rem;">Main Content</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Flexbox vs Grid -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-title">🤔 Flexbox vs Grid: Choosing the Right Tool</h2>
+                <div class="comparison-container">
+                    <div class="comparison-card internet-card">
+                        <h3>✅ Use Flexbox When</h3>
+                        <ul style="font-size: 0.9rem;">
+                            <li>Layout is one-dimensional</li>
+                            <li>Arranging items in row/column</li>
+                            <li>Navigation bars, toolbars</li>
+                            <li>Card collections</li>
+                            <li>Simple centering</li>
+                        </ul>
+                        <div class="card-metaphor">Linear layouts</div>
+                    </div>
+                    <div class="vs-badge">VS</div>
+                    <div class="comparison-card web-card">
+                        <h3>✅ Use Grid When</h3>
+                        <ul style="font-size: 0.9rem;">
+                            <li>Layout is two-dimensional</li>
+                            <li>Rows AND columns matter</li>
+                            <li>Page layouts, dashboards</li>
+                            <li>Precise item placement</li>
+                            <li>Complex template layouts</li>
+                        </ul>
+                        <div class="card-metaphor">Complex layouts</div>
+                    </div>
+                </div>
+
+                <!-- Combined Example -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">Combined Example: Layout Pattern</h4>
+                    <div style="background: rgba(255,255,255,0.1); padding: 0; border-radius: 8px; overflow: hidden;">
+                        <!-- Header with Flexbox nav -->
+                        <div style="background: rgba(99, 102, 241, 0.3); padding: 1rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
+                            <div style="font-weight: 600; font-size: 0.9rem;">Logo</div>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <div style="background: rgba(99, 102, 241, 0.5); padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.75rem;">Home</div>
+                                <div style="background: rgba(99, 102, 241, 0.5); padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.75rem;">About</div>
+                            </div>
+                        </div>
+
+                        <!-- Main content with Grid -->
+                        <div style="display: grid; grid-template-columns: 150px 1fr; min-height: 150px;">
+                            <div style="background: rgba(168, 85, 247, 0.3); padding: 1rem; font-size: 0.85rem; border-right: 1px solid rgba(255,255,255,0.1);">
+                                <div style="font-weight: 600; margin-bottom: 0.5rem;">Sidebar</div>
+                                <div style="font-size: 0.75rem; color: var(--text-secondary);">Menu items...</div>
+                            </div>
+                            <div style="background: rgba(236, 72, 153, 0.3); padding: 1rem; font-size: 0.85rem;">
+                                <div style="font-weight: 600;">Main Content Area</div>
+                                <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.5rem;">Article content...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Responsive Design -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-title">📱 Responsive Design & Media Queries</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>🎯</span>
+                        <div>
+                            <strong>Mobile-First Approach</strong>
+                            <p>Start with mobile layout, then enhance for larger screens. Use <code>min-width</code> media queries.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>📐</span>
+                        <div>
+                            <strong>Common Breakpoints</strong>
+                            <p>Mobile: &lt; 768px | Tablet: 768px-1024px | Desktop: &gt; 1024px. Adjust based on design.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🔍</span>
+                        <div>
+                            <strong>Media Query Syntax</strong>
+                            <p><code>@media (min-width: 768px) { ... }</code> applies styles only when viewport ≥ 768px.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>⚙️</span>
+                        <div>
+                            <strong>Flexible Sizing</strong>
+                            <p>Use percentages, <code>max-width</code>, <code>flex</code>, and <code>fr</code> units. Avoid fixed pixel layouts.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Media Query Examples with Code -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <!-- Code Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">CSS Code</h4>
+                        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden;">
+                            <div style="background: rgba(99, 102, 241, 0.2); padding: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; font-family: 'Fira Code', monospace;">
+                                responsive.css
+                            </div>
+                            <pre style="padding: 1rem; margin: 0; font-size: 0.65rem; overflow-x: auto; color: var(--text-primary);"><code style="font-family: 'Fira Code', monospace;">/* Mobile first */
+.container {
+  display: grid;
+  grid-template-columns:
+    1fr;
+  padding: 1rem;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns:
+      1fr 250px;
+    padding: 2rem;
+  }
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Live Example Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Responsive Behavior</h4>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px;">
+                            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                                <div style="text-align: center; font-size: 0.85rem; font-weight: 600;">
+                                    <div style="background: rgba(99, 102, 241, 0.3); padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">Mobile Layout</div>
+                                    <div style="font-size: 0.75rem; color: var(--text-secondary);">Single column</div>
+                                </div>
+
+                                <div style="text-align: center; font-size: 0.85rem; font-weight: 600;">
+                                    <div style="display: grid; grid-template-columns: 1fr auto; gap: 0.5rem;">
+                                        <div style="background: rgba(168, 85, 247, 0.3); padding: 1rem; border-radius: 4px;">Content</div>
+                                        <div style="background: rgba(236, 72, 153, 0.3); padding: 1rem; border-radius: 4px; min-width: 80px;">Sidebar</div>
+                                    </div>
+                                    <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.5rem;">Tablet+</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: Advanced Layout Patterns -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content">
+                <h2 class="slide-title">🎨 Advanced Layout Patterns</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>📰</span>
+                        <div>
+                            <strong>Holy Grail Layout</strong>
+                            <p>Header, footer, sidebar, main. Common website structure. Perfect for CSS Grid.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🎴</span>
+                        <div>
+                            <strong>Card Grid</strong>
+                            <p>Responsive grid of equal-sized cards. Use <code>auto-fit</code> or <code>auto-fill</code> with <code>minmax</code>.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>📊</span>
+                        <div>
+                            <strong>Sidebar Layouts</strong>
+                            <p>Fixed or flexible sidebars. Flexbox or Grid. Sidebar changes on mobile.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🔗</span>
+                        <div>
+                            <strong>Navbar Patterns</strong>
+                            <p>Horizontal flex navigation. Hamburger menu on mobile. Position sticky/fixed.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pattern Examples -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">Holy Grail Pattern</h4>
+                    <div style="background: rgba(255,255,255,0.1); padding: 0; border-radius: 8px; overflow: hidden; display: grid; grid-template-rows: auto 1fr auto; grid-template-columns: 150px 1fr 150px; min-height: 250px;">
+                        <!-- Header spanning all columns -->
+                        <div style="grid-column: 1 / -1; background: rgba(99, 102, 241, 0.3); padding: 1rem; display: flex; align-items: center; font-weight: 600;">Header</div>
+
+                        <!-- Left sidebar -->
+                        <div style="background: rgba(168, 85, 247, 0.3); padding: 1rem; border-right: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem;">Left<br><span style="font-size: 0.7rem; color: var(--text-secondary);">Sidebar</span></div>
+
+                        <!-- Main content -->
+                        <div style="background: rgba(236, 72, 153, 0.3); padding: 1rem; font-size: 0.85rem;">Main Content</div>
+
+                        <!-- Right sidebar -->
+                        <div style="background: rgba(6, 182, 212, 0.3); padding: 1rem; border-left: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem;">Right<br><span style="font-size: 0.7rem; color: var(--text-secondary);">Sidebar</span></div>
+
+                        <!-- Footer spanning all columns -->
+                        <div style="grid-column: 1 / -1; background: rgba(99, 102, 241, 0.3); padding: 1rem; border-top: 1px solid rgba(255,255,255,0.1); font-weight: 600;">Footer</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 9: Summary -->
+        <section class="slide" data-slide="9">
+            <div class="slide-content summary-slide">
+                <h2 class="slide-title">🚀 Layout Mastery Achieved</h2>
+                <div class="end-decoration">
+                    <span class="thank-you">You can now build any layout imaginable</span>
+                    <span class="questions">Next: Module 7 - CSS Frameworks (Bootstrap, Tailwind)</span>
+                </div>
+                <div class="demo-steps" style="margin-top: 3rem;">
+                    <div class="demo-step">
+                        <span class="step-number">→</span>
+                        <p>Positioning: Static, relative, absolute, fixed, sticky</p>
+                    </div>
+                    <div class="demo-step">
+                        <span class="step-number">→</span>
+                        <p>Flexbox: One-dimensional flexible layouts</p>
+                    </div>
+                    <div class="demo-step">
+                        <span class="step-number">→</span>
+                        <p>Grid: Two-dimensional powerful layouts</p>
+                    </div>
+                    <div class="demo-step">
+                        <span class="step-number">→</span>
+                        <p>Responsive Design: Mobile-first media queries</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Slide Navigation -->
+    <nav class="slide-nav">
+        <button class="nav-btn prev-btn" id="prevBtn">←</button>
+        <span class="slide-counter" id="slideCounter">1 / 9</span>
+        <button class="nav-btn next-btn" id="nextBtn">→</button>
+    </nav>
+
+    <!-- Keyboard Hint -->
+    <div class="keyboard-hint">
+        <span>Use <kbd>←</kbd> <kbd>→</kbd> or <kbd>Space</kbd></span>
+    </div>
+
+    <!-- Script -->
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

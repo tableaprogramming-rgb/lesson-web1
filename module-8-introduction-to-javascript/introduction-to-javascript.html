@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 8: Introduction to JavaScript</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body>
+    <!-- Home Button -->
+    <div class="course-nav home">
+        <a href="../index.html" class="course-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Home
+        </a>
+    </div>
+
+    <!-- Previous Lesson Button -->
+    <div class="course-nav prev">
+        <a href="../module-7-css-frameworks/css-frameworks.html" class="course-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Previous Lesson
+        </a>
+    </div>
+
+    <!-- Next Lesson Button -->
+    <div class="course-nav next">
+        <a href="../module-9-javascript-and-the-dom/javascript-and-the-dom.html" class="course-btn">
+            Next Lesson
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </a>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- Slides Container -->
+    <div class="slides-container" id="slidesContainer">
+
+        <!-- Slide 1: Title -->
+        <section class="slide active" data-slide="1">
+            <div class="slide-content title-slide">
+                <div class="title-decoration">
+                    <span class="tag">Module 08</span>
+                </div>
+                <h1 class="main-title">
+                    <span class="gradient-text">Introduction to JavaScript</span>
+                    <span class="subtitle">The Language of Web Interactivity</span>
+                </h1>
+                <p class="presenter-info">Programming Fundamentals for the Web</p>
+                <div class="animated-icons">
+                    <div class="floating-icon icon-1">⚡</div>
+                    <div class="floating-icon icon-2">🧠</div>
+                    <div class="floating-icon icon-3">🎮</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: Learning Objectives -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-title">🎯 Learning Objectives</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card" style="--delay: 0s;">
+                        <div class="objective-icon">💡</div>
+                        <h3>Understand JavaScript</h3>
+                        <p>Why it matters and where it runs</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.1s;">
+                        <div class="objective-icon">📦</div>
+                        <h3>Variables & Data Types</h3>
+                        <p>Store and work with different data</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.2s;">
+                        <div class="objective-icon">🔢</div>
+                        <h3>Operators & Control Flow</h3>
+                        <p>Make decisions and loop through data</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.3s;">
+                        <div class="objective-icon">🔧</div>
+                        <h3>Functions</h3>
+                        <p>Write reusable blocks of code</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.4s;">
+                        <div class="objective-icon">📊</div>
+                        <h3>Arrays & Objects</h3>
+                        <p>Organize and structure data</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.5s;">
+                        <div class="objective-icon">🧠</div>
+                        <h3>Think Programmatically</h3>
+                        <p>Translate logic into code</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: What is JavaScript? -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-title">⚡ What is JavaScript?</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>🌐</span>
+                        <div>
+                            <strong>The Language of the Web</strong>
+                            <p>JavaScript runs in browsers and adds interactivity. HTML (structure) + CSS (style) + JavaScript (behavior).</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🚀</span>
+                        <div>
+                            <strong>Powers Modern Web</strong>
+                            <p>Form validation, animations, real-time updates, dynamic content, games, full apps. The brain of web pages.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🎯</span>
+                        <div>
+                            <strong>Versatile</strong>
+                            <p>Browser (client-side), server (Node.js), desktop apps, mobile. Everywhere you need dynamic behavior.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>📚</span>
+                        <div>
+                            <strong>Easy to Start, Hard to Master</strong>
+                            <p>Basics are accessible. Advanced patterns take time. Millions of libraries and frameworks available.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Code Examples -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <!-- Code Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">JavaScript</h4>
+                        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden;">
+                            <div style="background: rgba(99, 102, 241, 0.2); padding: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; font-family: 'Fira Code', monospace;">
+                                script.js
+                            </div>
+                            <pre style="padding: 1rem; margin: 0; font-size: 0.75rem; overflow-x: auto; color: var(--text-primary);"><code style="font-family: 'Fira Code', monospace;">// Variables
+let name = "Alice";
+const age = 25;
+
+// Functions
+function greet(person) {
+  return `Hello,
+          ${person}!`;
+}
+
+// Arrays
+let colors =
+  ["red", "blue"];
+
+// DOM Interaction
+document.getElementById(
+  "btn"
+).addEventListener(
+  "click",
+  () => {
+    alert("Clicked!");
+  }
+);</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Output Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">What It Does</h4>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px;">
+                            <div style="font-size: 0.9rem; margin-bottom: 1rem;">
+                                <strong>Variables:</strong><br>
+                                <span style="font-family: 'Fira Code', monospace; color: var(--text-secondary); font-size: 0.8rem;">name = "Alice"<br>age = 25</span>
+                            </div>
+                            <div style="font-size: 0.9rem; margin-bottom: 1rem;">
+                                <strong>Function call:</strong><br>
+                                <span style="font-family: 'Fira Code', monospace; color: var(--text-secondary); font-size: 0.8rem;">greet("Bob")</span><br>
+                                <span style="color: rgba(16, 185, 129, 1);">→ "Hello, Bob!"</span>
+                            </div>
+                            <div>
+                                <strong>Interaction:</strong><br>
+                                <button style="background: rgba(99, 102, 241, 0.8); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; margin-top: 0.5rem; font-size: 0.85rem;">Click me!</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Variables & Data Types -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-title">📦 Variables & Data Types</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>🎁</span>
+                        <div>
+                            <strong>Variables: Containers for Data</strong>
+                            <p>Use <code>let</code> or <code>const</code>. camelCase naming. Descriptive names matter.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>📝</span>
+                        <div>
+                            <strong>Data Types</strong>
+                            <p>String: "text", Number: 42, Boolean: true/false, Array: [1,2,3], Object: {name: "Alice"}, undefined, null</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>⚖️</span>
+                        <div>
+                            <strong>const vs let</strong>
+                            <p>Use <code>const</code> by default (prevents reassignment). Use <code>let</code> only when you need to reassign.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🔍</span>
+                        <div>
+                            <strong>Type Checking</strong>
+                            <p>Use <code>typeof</code> to check type: <code>typeof "hello"</code> → "string". Important for understanding values.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Variables Example -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <!-- Code Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Code Examples</h4>
+                        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden;">
+                            <div style="background: rgba(99, 102, 241, 0.2); padding: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; font-family: 'Fira Code', monospace;">
+                                variables.js
+                            </div>
+                            <pre style="padding: 1rem; margin: 0; font-size: 0.7rem; overflow-x: auto; color: var(--text-primary);"><code style="font-family: 'Fira Code', monospace;">// Strings
+const name = "Alice";
+const message = "Hello";
+
+// Numbers
+let age = 25;
+const pi = 3.14159;
+
+// Arrays
+const fruits =
+  ["apple", "banana"];
+
+// Objects
+const person = {
+  name: "Bob",
+  age: 30,
+  city: "NYC"
+};
+
+// Booleans
+const isStudent = true;</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Output Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Data Types</h4>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px;">
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.85rem;">
+                                <div style="border-left: 3px solid rgba(99, 102, 241, 0.8); padding-left: 1rem;">
+                                    <strong style="color: rgba(99, 102, 241, 1);">String</strong><br>
+                                    <span style="font-family: 'Fira Code', monospace; color: var(--text-secondary); font-size: 0.75rem;">"Alice", 'text'</span>
+                                </div>
+                                <div style="border-left: 3px solid rgba(168, 85, 247, 0.8); padding-left: 1rem;">
+                                    <strong style="color: rgba(168, 85, 247, 1);">Number</strong><br>
+                                    <span style="font-family: 'Fira Code', monospace; color: var(--text-secondary); font-size: 0.75rem;">25, 3.14, -10</span>
+                                </div>
+                                <div style="border-left: 3px solid rgba(236, 72, 153, 0.8); padding-left: 1rem;">
+                                    <strong style="color: rgba(236, 72, 153, 1);">Array</strong><br>
+                                    <span style="font-family: 'Fira Code', monospace; color: var(--text-secondary); font-size: 0.75rem;">[1, "two", true]</span>
+                                </div>
+                                <div style="border-left: 3px solid rgba(6, 182, 212, 0.8); padding-left: 1rem;">
+                                    <strong style="color: rgba(6, 182, 212, 1);">Object</strong><br>
+                                    <span style="font-family: 'Fira Code', monospace; color: var(--text-secondary); font-size: 0.75rem;">{key: "value"}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Operators & Control Flow -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-title">🔢 Operators & Control Flow</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>➕</span>
+                        <div>
+                            <strong>Operators</strong>
+                            <p>Arithmetic: +, -, *, /, %. Comparison: ===, !==, <, >. Logical: &&, ||, !</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🤔</span>
+                        <div>
+                            <strong>if/else: Making Decisions</strong>
+                            <p>Test conditions and execute different code paths. Use && and || to combine conditions.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🔄</span>
+                        <div>
+                            <strong>Loops: Repeating Code</strong>
+                            <p><code>for</code>, <code>while</code>, <code>for...of</code>. Execute code multiple times efficiently.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>⚙️</span>
+                        <div>
+                            <strong>Use === not ==</strong>
+                            <p>Strict equality (===) compares type and value. Avoid loose equality (==) which coerces types.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Control Flow Examples -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <!-- Code Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Code Examples</h4>
+                        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden;">
+                            <div style="background: rgba(99, 102, 241, 0.2); padding: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; font-family: 'Fira Code', monospace;">
+                                control-flow.js
+                            </div>
+                            <pre style="padding: 1rem; margin: 0; font-size: 0.7rem; overflow-x: auto; color: var(--text-primary);"><code style="font-family: 'Fira Code', monospace;">// if/else
+if (age >= 18) {
+  console.log("Adult");
+} else {
+  console.log("Minor");
+}
+
+// for loop
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+
+// while loop
+let count = 0;
+while (count < 3) {
+  console.log(count);
+  count++;
+}
+
+// Logical operators
+if (age > 18 &&
+    hasLicense) {
+  console.log("Can drive");
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Output Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Output</h4>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; font-family: 'Fira Code', monospace; font-size: 0.8rem;">
+                            <div style="margin-bottom: 1rem;">
+                                <strong style="color: rgba(99, 102, 241, 1);">if/else Result:</strong>
+                                <div style="color: var(--text-secondary); margin-top: 0.3rem;">"Adult"</div>
+                            </div>
+                            <div style="margin-bottom: 1rem;">
+                                <strong style="color: rgba(168, 85, 247, 1);">for loop Output:</strong>
+                                <div style="color: var(--text-secondary); margin-top: 0.3rem;">0 1 2 3 4</div>
+                            </div>
+                            <div>
+                                <strong style="color: rgba(236, 72, 153, 1);">while loop Output:</strong>
+                                <div style="color: var(--text-secondary); margin-top: 0.3rem;">0<br>1<br>2</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Functions -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-title">🔧 Functions: Reusable Code</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>📋</span>
+                        <div>
+                            <strong>What is a Function?</strong>
+                            <p>A named block of code that performs a task. Takes input (parameters), returns output (return value).</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🎯</span>
+                        <div>
+                            <strong>Declaration vs Calling</strong>
+                            <p><code>function greet(name) { }</code> declares. <code>greet("Alice")</code> calls/executes it.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>↩️</span>
+                        <div>
+                            <strong>Return Values</strong>
+                            <p><code>return</code> sends value back to caller. Without return, function returns undefined.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>⚡</span>
+                        <div>
+                            <strong>Arrow Functions</strong>
+                            <p>Modern syntax: <code>const add = (a, b) => a + b;</code> is shorter than traditional function.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Functions Example -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <!-- Code Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Code Examples</h4>
+                        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden;">
+                            <div style="background: rgba(99, 102, 241, 0.2); padding: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; font-family: 'Fira Code', monospace;">
+                                functions.js
+                            </div>
+                            <pre style="padding: 1rem; margin: 0; font-size: 0.7rem; overflow-x: auto; color: var(--text-primary);"><code style="font-family: 'Fira Code', monospace;">// Declaration
+function add(a, b) {
+  return a + b;
+}
+
+// Calling
+let result = add(5, 3);
+
+// Arrow function
+const multiply =
+  (a, b) => a * b;
+
+// With default
+function greet(
+  name = "Friend"
+) {
+  return `Hello,
+          ${name}!`;
+}
+
+// Calling functions
+add(10, 20);
+greet("Alice");</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Output Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Results</h4>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px;">
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem; font-family: 'Fira Code', monospace; font-size: 0.8rem;">
+                                <div style="border-left: 3px solid rgba(99, 102, 241, 0.8); padding-left: 1rem;">
+                                    <strong style="color: rgba(99, 102, 241, 1);">add(5, 3)</strong><br>
+                                    <span style="color: var(--text-secondary);">→ 8</span>
+                                </div>
+                                <div style="border-left: 3px solid rgba(168, 85, 247, 0.8); padding-left: 1rem;">
+                                    <strong style="color: rgba(168, 85, 247, 1);">multiply(4, 5)</strong><br>
+                                    <span style="color: var(--text-secondary);">→ 20</span>
+                                </div>
+                                <div style="border-left: 3px solid rgba(236, 72, 153, 0.8); padding-left: 1rem;">
+                                    <strong style="color: rgba(236, 72, 153, 1);">greet("Bob")</strong><br>
+                                    <span style="color: var(--text-secondary);">→ "Hello, Bob!"</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Arrays & Objects -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-title">📊 Arrays & Objects: Organizing Data</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>📋</span>
+                        <div>
+                            <strong>Arrays: Collections</strong>
+                            <p>Store multiple values. Zero-indexed: first element is [0]. Access with <code>array[0]</code>.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🔄</span>
+                        <div>
+                            <strong>Array Methods</strong>
+                            <p><code>push()</code>, <code>pop()</code>, <code>map()</code>, <code>filter()</code>, <code>forEach()</code>. Super powerful for data manipulation.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🗝️</span>
+                        <div>
+                            <strong>Objects: Key-Value Pairs</strong>
+                            <p>Organize related data: <code>{name: "Alice", age: 25}</code>. Access with dot or bracket notation.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🎯</span>
+                        <div>
+                            <strong>When to Use</strong>
+                            <p>Arrays for lists. Objects for entities. Arrays of objects for collections of entities (users, products).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arrays & Objects Example -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <!-- Code Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Code Examples</h4>
+                        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden;">
+                            <div style="background: rgba(99, 102, 241, 0.2); padding: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; font-family: 'Fira Code', monospace;">
+                                arrays-objects.js
+                            </div>
+                            <pre style="padding: 1rem; margin: 0; font-size: 0.65rem; overflow-x: auto; color: var(--text-primary);"><code style="font-family: 'Fira Code', monospace;">// Array
+const numbers =
+  [1, 2, 3, 4, 5];
+numbers.push(6);
+
+// Array methods
+const doubled =
+  numbers.map(n => n * 2);
+const evens =
+  numbers.filter(n =>
+    n % 2 === 0);
+
+// Object
+const person = {
+  name: "Alice",
+  age: 25,
+  city: "NYC"
+};
+person.age = 26;
+
+// Array of objects
+const users = [
+  {name: "Alice",
+   age: 25},
+  {name: "Bob",
+   age: 30}
+];</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Output Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Data Structures</h4>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px;">
+                            <div style="margin-bottom: 1rem;">
+                                <strong style="color: rgba(99, 102, 241, 1);">Array:</strong>
+                                <div style="font-family: 'Fira Code', monospace; color: var(--text-secondary); font-size: 0.75rem; margin-top: 0.3rem;">
+                                    [1, 2, 3, 4, 5, 6]
+                                </div>
+                            </div>
+                            <div style="margin-bottom: 1rem;">
+                                <strong style="color: rgba(168, 85, 247, 1);">Map Result:</strong>
+                                <div style="font-family: 'Fira Code', monospace; color: var(--text-secondary); font-size: 0.75rem; margin-top: 0.3rem;">
+                                    [2, 4, 6, 8, 10, 12]
+                                </div>
+                            </div>
+                            <div>
+                                <strong style="color: rgba(236, 72, 153, 1);">Object:</strong>
+                                <div style="font-family: 'Fira Code', monospace; color: var(--text-secondary); font-size: 0.75rem; margin-top: 0.3rem;">
+                                    {name: "Alice", age: 26, city: "NYC"}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: Practical JavaScript -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content">
+                <h2 class="slide-title">🎮 Practical JavaScript</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>📝</span>
+                        <div>
+                            <strong>Console Logging</strong>
+                            <p><code>console.log()</code> prints to browser console. Essential for debugging. Use for testing variables.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🐛</span>
+                        <div>
+                            <strong>Debugging</strong>
+                            <p>Browser DevTools (F12) shows errors. Use console.log strategically. Check variable values step by step.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>✅</span>
+                        <div>
+                            <strong>Best Practices</strong>
+                            <p>Use meaningful names. Keep functions small. Comment confusing logic. Test frequently. Handle errors gracefully.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>⚡</span>
+                        <div>
+                            <strong>Next Level: DOM Interaction</strong>
+                            <p>JavaScript connects to HTML via Document Object Model. Next module covers manipulating page elements dynamically.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Common Patterns -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">Common Patterns</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div style="background: rgba(99, 102, 241, 0.2); border: 1px solid rgba(99, 102, 241, 0.4); padding: 1rem; border-radius: 8px; font-size: 0.8rem;">
+                            <strong style="color: rgba(99, 102, 241, 1);">✅ Good:</strong>
+                            <ul style="margin-top: 0.5rem; padding-left: 1.2rem; color: var(--text-secondary);">
+                                <li>Descriptive variable names</li>
+                                <li>Small focused functions</li>
+                                <li>Use const by default</li>
+                                <li>Comments for why, not what</li>
+                            </ul>
+                        </div>
+                        <div style="background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.4); padding: 1rem; border-radius: 8px; font-size: 0.8rem;">
+                            <strong style="color: rgba(239, 68, 68, 1);">❌ Avoid:</strong>
+                            <ul style="margin-top: 0.5rem; padding-left: 1.2rem; color: var(--text-secondary);">
+                                <li>Single-letter variables</li>
+                                <li>Functions that do too much</li>
+                                <li>Global variables</li>
+                                <li>Silent errors</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 9: Summary -->
+        <section class="slide" data-slide="9">
+            <div class="slide-content summary-slide">
+                <h2 class="slide-title">🚀 JavaScript Fundamentals Mastered</h2>
+                <div class="end-decoration">
+                    <span class="thank-you">You now understand JavaScript basics</span>
+                    <span class="questions">Next: Module 9 - JavaScript and the DOM</span>
+                </div>
+                <div class="demo-steps" style="margin-top: 3rem;">
+                    <div class="demo-step">
+                        <span class="step-number">→</span>
+                        <p>Variables: const by default, let when needed</p>
+                    </div>
+                    <div class="demo-step">
+                        <span class="step-number">→</span>
+                        <p>Data types: Strings, numbers, arrays, objects</p>
+                    </div>
+                    <div class="demo-step">
+                        <span class="step-number">→</span>
+                        <p>Control flow: if/else, loops, conditions</p>
+                    </div>
+                    <div class="demo-step">
+                        <span class="step-number">→</span>
+                        <p>Functions: Reusable code blocks</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Slide Navigation -->
+    <nav class="slide-nav">
+        <button class="nav-btn prev-btn" id="prevBtn">←</button>
+        <span class="slide-counter" id="slideCounter">1 / 9</span>
+        <button class="nav-btn next-btn" id="nextBtn">→</button>
+    </nav>
+
+    <!-- Keyboard Hint -->
+    <div class="keyboard-hint">
+        <span>Use <kbd>←</kbd> <kbd>→</kbd> or <kbd>Space</kbd></span>
+    </div>
+
+    <!-- Script -->
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

@@ -100,7 +100,7 @@ body {
 }
 
 .slide-counter {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--text-secondary);
     font-weight: 500;
     min-width: 60px;
@@ -140,9 +140,11 @@ kbd {
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    padding: 4rem 2rem;
+    padding: 4rem 2rem 10rem 2rem;
+    overflow-y: auto;
+    overflow-x: hidden;
     opacity: 0;
     visibility: hidden;
     transform: translateX(50px);
@@ -179,14 +181,15 @@ kbd {
     border-radius: 100px;
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
 
 .main-title {
-    font-size: 4rem;
+    font-size: 3.5rem;
+    /* 56px - optimized for projection */
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 1.5rem;
@@ -202,13 +205,15 @@ kbd {
 .subtitle {
     display: block;
     font-size: 2.5rem;
+    /* 40px - within subtitle range */
     color: var(--text-secondary);
     font-weight: 300;
 }
 
 .presenter-info {
     color: var(--text-muted);
-    font-size: 1.1rem;
+    font-size: 2rem;
+    /* 32px - increased from 1.1rem */
 }
 
 .animated-icons {
@@ -252,7 +257,8 @@ kbd {
 
 /* Slide Titles */
 .slide-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
+    /* 48px - minimum title size */
     font-weight: 700;
     margin-bottom: 1rem;
     background: var(--gradient-1);
@@ -263,7 +269,8 @@ kbd {
 
 .slide-subtitle {
     color: var(--text-secondary);
-    font-size: 1.2rem;
+    font-size: 2rem;
+    /* 32px - subtitle range */
     margin-bottom: 2rem;
 }
 
@@ -299,13 +306,15 @@ kbd {
 }
 
 .objective-card h3 {
-    font-size: 1.2rem;
+    font-size: 2.4rem;
     margin-bottom: 0.5rem;
 }
 
 .objective-card p {
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 1.6rem;
+    /* Adjusted for hierarchy */
+    line-height: 1.5;
 }
 
 @keyframes fadeInUp {
@@ -354,7 +363,7 @@ kbd {
 }
 
 .comparison-card h3 {
-    font-size: 1.5rem;
+    font-size: 2.4rem;
     margin-bottom: 1rem;
 }
 
@@ -367,6 +376,8 @@ kbd {
     padding: 0.5rem 0;
     color: var(--text-secondary);
     border-bottom: 1px solid var(--glass-border);
+    font-size: 1.6rem;
+    /* Adjusted for hierarchy */
 }
 
 .card-metaphor {
@@ -457,11 +468,13 @@ kbd {
 blockquote {
     font-style: italic;
     color: var(--text-secondary);
-    padding: 1rem;
-    border-left: 3px solid var(--accent);
-    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    border-left: 4px solid var(--accent);
+    margin: 2rem 0;
     background: var(--glass-bg);
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 15px 15px 0;
+    font-size: 1.8rem;
+    line-height: 1.6;
 }
 
 /* Tech Stack */
@@ -510,13 +523,14 @@ blockquote {
 }
 
 .tech-card h3 {
-    font-size: 1.3rem;
+    font-size: 2.4rem;
     margin-bottom: 0.5rem;
 }
 
 .tech-card p {
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 1.6rem;
+    /* Adjusted for hierarchy */
 }
 
 /* Client-Server Diagram */
@@ -544,13 +558,14 @@ blockquote {
 }
 
 .diagram-entity h3 {
-    font-size: 1.3rem;
+    font-size: 2.4rem;
     margin-bottom: 0.5rem;
 }
 
 .diagram-entity p {
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 1.6rem;
+    /* Adjusted for hierarchy */
 }
 
 .diagram-flow {
@@ -575,7 +590,7 @@ blockquote {
     background: var(--glass-bg);
     padding: 0.75rem 1.5rem;
     border-radius: 10px;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
 }
 
 /* Definition Box */
@@ -644,7 +659,7 @@ blockquote {
     background: var(--glass-bg);
     padding: 0.5rem 1rem;
     border-radius: 8px;
-    font-size: 0.85rem;
+    font-size: 1.1rem;
 }
 
 .anatomy-notes {
@@ -705,8 +720,10 @@ blockquote {
     padding: 1.5rem;
     overflow-x: auto;
     font-family: 'Fira Code', monospace;
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 1.5rem;
+    /* 24px - reduced from 2rem to prevent wrapping */
+    line-height: 1.8;
+    /* Better spacing */
 }
 
 .code-window code {
@@ -740,7 +757,8 @@ blockquote {
     border-radius: 5px;
     margin: 0.25rem;
     font-family: 'Fira Code', monospace;
-    font-size: 0.85rem;
+    font-size: 1.25rem;
+    /* 20px - adjusted for readability */
     color: var(--accent);
 }
 
@@ -781,6 +799,54 @@ blockquote {
     text-align: center;
     margin-top: 2rem;
     color: var(--text-secondary);
+}
+
+/* Course Navigation */
+.course-nav {
+    position: fixed;
+    top: 1.5rem;
+    z-index: 1000;
+}
+
+.course-nav.home {
+    left: 1.5rem;
+}
+
+.course-nav.prev {
+    left: 12rem;
+}
+
+.course-nav.next {
+    right: 1.5rem;
+}
+
+.course-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 100px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.course-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.course-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
 }
 
 /* Summary Slide */

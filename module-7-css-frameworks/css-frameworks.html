@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 7: CSS Frameworks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body>
+    <!-- Home Button -->
+    <div class="course-nav home">
+        <a href="../index.html" class="course-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Home
+        </a>
+    </div>
+
+    <!-- Previous Lesson Button -->
+    <div class="course-nav prev">
+        <a href="../module-6-css-layout-mastery/css-layout-mastery.html" class="course-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Previous Lesson
+        </a>
+    </div>
+
+    <!-- Next Lesson Button -->
+    <div class="course-nav next">
+        <a href="../module-8-introduction-to-javascript/introduction-to-javascript.html" class="course-btn">
+            Next Lesson
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </a>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- Slides Container -->
+    <div class="slides-container" id="slidesContainer">
+
+        <!-- Slide 1: Title -->
+        <section class="slide active" data-slide="1">
+            <div class="slide-content title-slide">
+                <div class="title-decoration">
+                    <span class="tag">Module 07</span>
+                </div>
+                <h1 class="main-title">
+                    <span class="gradient-text">CSS Frameworks</span>
+                    <span class="subtitle">Bootstrap, Tailwind & Beyond</span>
+                </h1>
+                <p class="presenter-info">Accelerate Development with Pre-Built Components</p>
+                <div class="animated-icons">
+                    <div class="floating-icon icon-1">📦</div>
+                    <div class="floating-icon icon-2">⚡</div>
+                    <div class="floating-icon icon-3">🚀</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: Learning Objectives -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-title">🎯 Learning Objectives</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card" style="--delay: 0s;">
+                        <div class="objective-icon">🤔</div>
+                        <h3>Understand Frameworks</h3>
+                        <p>When and why to use CSS frameworks</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.1s;">
+                        <div class="objective-icon">📚</div>
+                        <h3>Learn Bootstrap</h3>
+                        <p>Grid system, components, responsive utilities</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.2s;">
+                        <div class="objective-icon">🎨</div>
+                        <h3>Explore Tailwind CSS</h3>
+                        <p>Utility-first approach to styling</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.3s;">
+                        <div class="objective-icon">⚙️</div>
+                        <h3>Customize Frameworks</h3>
+                        <p>Extend and personalize framework components</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.4s;">
+                        <div class="objective-icon">🎯</div>
+                        <h3>Choose the Right Tool</h3>
+                        <p>Compare frameworks and select for projects</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.5s;">
+                        <div class="objective-icon">🔧</div>
+                        <h3>Alternatives & Trade-offs</h3>
+                        <p>Other frameworks and when to use vanilla CSS</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Why CSS Frameworks? -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-title">❓ Why CSS Frameworks?</h2>
+                <div class="comparison-container">
+                    <div class="comparison-card internet-card">
+                        <h3>✅ Advantages</h3>
+                        <ul style="font-size: 0.9rem;">
+                            <li>Pre-built components</li>
+                            <li>Responsive by default</li>
+                            <li>Faster development</li>
+                            <li>Consistent design</li>
+                            <li>Cross-browser tested</li>
+                            <li>Active communities</li>
+                        </ul>
+                        <div class="card-metaphor">Speed & reliability</div>
+                    </div>
+                    <div class="vs-badge">VS</div>
+                    <div class="comparison-card web-card">
+                        <h3>⚠️ Disadvantages</h3>
+                        <ul style="font-size: 0.9rem;">
+                            <li>Large file sizes</li>
+                            <li>Learning curve</li>
+                            <li>Limited customization</li>
+                            <li>Generic look (if not customized)</li>
+                            <li>Bloated for simple projects</li>
+                            <li>Vendor lock-in</li>
+                        </ul>
+                        <div class="card-metaphor">Trade-offs</div>
+                    </div>
+                </div>
+
+                <!-- Use Case Examples -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">When to Use Frameworks</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div style="background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.5); padding: 1rem; border-radius: 8px;">
+                            <strong style="color: rgba(16, 185, 129, 1);">✅ Good For:</strong>
+                            <ul style="font-size: 0.85rem; margin-top: 0.5rem; padding-left: 1.2rem;">
+                                <li>Large projects</li>
+                                <li>Teams</li>
+                                <li>Rapid prototyping</li>
+                                <li>Enterprise apps</li>
+                            </ul>
+                        </div>
+                        <div style="background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.5); padding: 1rem; border-radius: 8px;">
+                            <strong style="color: rgba(239, 68, 68, 1);">❌ Not Good For:</strong>
+                            <ul style="font-size: 0.85rem; margin-top: 0.5rem; padding-left: 1.2rem;">
+                                <li>Simple sites</li>
+                                <li>Performance-critical</li>
+                                <li>Custom design</li>
+                                <li>Learning CSS</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Bootstrap Basics -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-title">🥾 Bootstrap: The Popular Choice</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>📦</span>
+                        <div>
+                            <strong>Component-Based</strong>
+                            <p>Pre-built components: buttons, navbars, cards, modals, forms. Consistent design language.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>📐</span>
+                        <div>
+                            <strong>Grid System</strong>
+                            <p>12-column responsive grid. Classes like <code>col-md-6</code> for layout at different breakpoints.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🎨</span>
+                        <div>
+                            <strong>Customization</strong>
+                            <p>Override CSS variables or customize via SASS. Thousands of configuration options.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>💪</span>
+                        <div>
+                            <strong>Utilities</strong>
+                            <p>Helper classes for margin, padding, display, text alignment, etc. Build custom components.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bootstrap Example -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <!-- Code Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Bootstrap Grid</h4>
+                        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden;">
+                            <div style="background: rgba(99, 102, 241, 0.2); padding: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; font-family: 'Fira Code', monospace;">
+                                bootstrap.html
+                            </div>
+                            <pre style="padding: 1rem; margin: 0; font-size: 0.7rem; overflow-x: auto; color: var(--text-primary);"><code style="font-family: 'Fira Code', monospace;">&lt;link href="bootstrap.css"
+      rel="stylesheet"&gt;
+
+&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-md-6"&gt;
+      Left column
+    &lt;/div&gt;
+    &lt;div class="col-md-6"&gt;
+      Right column
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;button class="btn btn-primary"&gt;
+  Click me
+&lt;/button&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Live Example Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Live Example</h4>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px;">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                                <div style="background: rgba(99, 102, 241, 0.3); padding: 1rem; border-radius: 4px; text-align: center; font-size: 0.85rem;">
+                                    col-md-6
+                                </div>
+                                <div style="background: rgba(99, 102, 241, 0.3); padding: 1rem; border-radius: 4px; text-align: center; font-size: 0.85rem;">
+                                    col-md-6
+                                </div>
+                            </div>
+                            <button style="background: rgba(99, 102, 241, 0.8); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-weight: 600; width: 100%;">
+                                btn-primary
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Tailwind CSS -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-title">🎨 Tailwind CSS: Utility-First</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>🔧</span>
+                        <div>
+                            <strong>Utility-First Approach</strong>
+                            <p>Use small, composable utility classes. No pre-built components. Build from utilities.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🎯</span>
+                        <div>
+                            <strong>Highly Customizable</strong>
+                            <p>Configure colors, spacing, typography via <code>tailwind.config.js</code>. True customization.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>📉</span>
+                        <div>
+                            <strong>Minimal CSS</strong>
+                            <p>Only includes used classes (via PurgeCSS). Smaller file size than component frameworks.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>📚</span>
+                        <div>
+                            <strong>Documentation & Community</strong>
+                            <p>Excellent docs. Growing ecosystem. UI component libraries built with Tailwind.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tailwind Example -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <!-- Code Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Tailwind Classes</h4>
+                        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden;">
+                            <div style="background: rgba(99, 102, 241, 0.2); padding: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; font-family: 'Fira Code', monospace;">
+                                tailwind.html
+                            </div>
+                            <pre style="padding: 1rem; margin: 0; font-size: 0.7rem; overflow-x: auto; color: var(--text-primary);"><code style="font-family: 'Fira Code', monospace;">&lt;div class="flex gap-4
+                p-4"&gt;
+  &lt;div class="flex-1
+              bg-blue-500
+              text-white
+              rounded-lg
+              p-4"&gt;
+    Column
+  &lt;/div&gt;
+  &lt;div class="flex-1
+              bg-blue-500
+              text-white
+              rounded-lg
+              p-4"&gt;
+    Column
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;button class="bg-indigo
+              px-4 py-2
+              rounded font-bold
+              hover:bg-indigo-700"&gt;
+  Click
+&lt;/button&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Live Example Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Live Example</h4>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px;">
+                            <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                                <div style="flex: 1; background: #3b82f6; color: white; border-radius: 8px; padding: 1rem; text-align: center; font-size: 0.85rem;">
+                                    flex-1
+                                </div>
+                                <div style="flex: 1; background: #3b82f6; color: white; border-radius: 8px; padding: 1rem; text-align: center; font-size: 0.85rem;">
+                                    flex-1
+                                </div>
+                            </div>
+                            <button style="background: #6366f1; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-weight: 600; width: 100%; transition: background 0.3s;" onmouseover="this.style.background='#4f46e5'" onmouseout="this.style.background='#6366f1'">
+                                hover:bg-indigo-700
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Bootstrap vs Tailwind -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-title">⚖️ Bootstrap vs Tailwind: Comparison</h2>
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; font-size: 0.85rem;">
+                        <!-- Bootstrap Column -->
+                        <div style="background: rgba(99, 102, 241, 0.2); border: 1px solid rgba(99, 102, 241, 0.5); padding: 1.5rem; border-radius: 8px;">
+                            <h3 style="color: rgba(99, 102, 241, 1); margin-bottom: 1rem; font-size: 1.1rem;">🥾 Bootstrap</h3>
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div>
+                                    <strong>Approach:</strong><br>
+                                    <span style="color: var(--text-secondary);">Component-based</span>
+                                </div>
+                                <div>
+                                    <strong>Learning:</strong><br>
+                                    <span style="color: var(--text-secondary);">Easy (pre-built)</span>
+                                </div>
+                                <div>
+                                    <strong>Customization:</strong><br>
+                                    <span style="color: var(--text-secondary);">Moderate</span>
+                                </div>
+                                <div>
+                                    <strong>File Size:</strong><br>
+                                    <span style="color: var(--text-secondary);">Larger (~200kb)</span>
+                                </div>
+                                <div>
+                                    <strong>Best For:</strong><br>
+                                    <span style="color: var(--text-secondary);">Quick dashboards, standard layouts</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tailwind Column -->
+                        <div style="background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.5); padding: 1.5rem; border-radius: 8px;">
+                            <h3 style="color: rgba(168, 85, 247, 1); margin-bottom: 1rem; font-size: 1.1rem;">🎨 Tailwind</h3>
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div>
+                                    <strong>Approach:</strong><br>
+                                    <span style="color: var(--text-secondary);">Utility-first</span>
+                                </div>
+                                <div>
+                                    <strong>Learning:</strong><br>
+                                    <span style="color: var(--text-secondary);">Steeper curve</span>
+                                </div>
+                                <div>
+                                    <strong>Customization:</strong><br>
+                                    <span style="color: var(--text-secondary);">Highly customizable</span>
+                                </div>
+                                <div>
+                                    <strong>File Size:</strong><br>
+                                    <span style="color: var(--text-secondary);">Smaller (~50kb)</span>
+                                </div>
+                                <div>
+                                    <strong>Best For:</strong><br>
+                                    <span style="color: var(--text-secondary);">Custom designs, unique projects</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Other Frameworks -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-title">🌍 Other CSS Frameworks & Tools</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>📦</span>
+                        <div>
+                            <strong>Foundation</strong>
+                            <p>Professional framework. Excellent for complex projects. Similar to Bootstrap but more powerful.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>⚡</span>
+                        <div>
+                            <strong>Bulma</strong>
+                            <p>Modern, minimal CSS framework. Easy to learn. Great for prototyping and learning.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🎯</span>
+                        <div>
+                            <strong>Material Design</strong>
+                            <p>Google's design system. Material-UI, Material 3. Polished, enterprise-ready components.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>✨</span>
+                        <div>
+                            <strong>Semantic UI</strong>
+                            <p>Uses semantic class names. Intuitive syntax. Good community and documentation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Framework Ecosystem -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">Framework Landscape</h4>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                        <div style="background: rgba(99, 102, 241, 0.2); border: 1px solid rgba(99, 102, 241, 0.4); padding: 1rem; border-radius: 8px;">
+                            <div style="font-weight: 600; color: rgba(99, 102, 241, 1); margin-bottom: 0.5rem;">Component-Based</div>
+                            <ul style="font-size: 0.8rem; padding-left: 1.2rem; color: var(--text-secondary);">
+                                <li>Bootstrap</li>
+                                <li>Foundation</li>
+                                <li>Material Design</li>
+                                <li>Semantic UI</li>
+                            </ul>
+                        </div>
+                        <div style="background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.4); padding: 1rem; border-radius: 8px;">
+                            <div style="font-weight: 600; color: rgba(168, 85, 247, 1); margin-bottom: 0.5rem;">Utility-First</div>
+                            <ul style="font-size: 0.8rem; padding-left: 1.2rem; color: var(--text-secondary);">
+                                <li>Tailwind CSS</li>
+                                <li>UnoCSS</li>
+                                <li>Windi CSS</li>
+                                <li>Atomic CSS</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: Customization & Best Practices -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content">
+                <h2 class="slide-title">🔧 Customization & Best Practices</h2>
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>🎨</span>
+                        <div>
+                            <strong>Customize Colors & Branding</strong>
+                            <p>Override framework variables. Define your own color palette. Maintain brand consistency.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>📝</span>
+                        <div>
+                            <strong>Build Custom Components</strong>
+                            <p>Extend frameworks with custom components. Use framework utilities as base. Create reusable patterns.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>⚖️</span>
+                        <div>
+                            <strong>Balance Framework vs Custom CSS</strong>
+                            <p>Use framework for structure, add custom CSS for unique design. Avoid fighting the framework.</p>
+                        </div>
+                    </div>
+                    <div class="key-point">
+                        <span>🚀</span>
+                        <div>
+                            <strong>Performance Optimization</strong>
+                            <p>Minify CSS. Remove unused styles. Lazy load components. Monitor file sizes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customization Example -->
+                <div style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <!-- Code Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Tailwind Config</h4>
+                        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden;">
+                            <div style="background: rgba(99, 102, 241, 0.2); padding: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; font-family: 'Fira Code', monospace;">
+                                tailwind.config.js
+                            </div>
+                            <pre style="padding: 1rem; margin: 0; font-size: 0.65rem; overflow-x: auto; color: var(--text-primary);"><code style="font-family: 'Fira Code', monospace;">module.exports = {
+  theme: {
+    colors: {
+      primary: '#6366f1',
+      accent: '#f472b6',
+    },
+    fontFamily: {
+      sans: ['Inter', 'sans'],
+    },
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Best Practices Side -->
+                    <div>
+                        <h4 style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Best Practices</h4>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px;">
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.85rem;">
+                                <div style="border-left: 3px solid rgba(16, 185, 129, 0.8); padding-left: 1rem;">
+                                    <strong style="color: rgba(16, 185, 129, 1);">✅</strong> Use framework as base
+                                </div>
+                                <div style="border-left: 3px solid rgba(16, 185, 129, 0.8); padding-left: 1rem;">
+                                    <strong style="color: rgba(16, 185, 129, 1);">✅</strong> Customize colors & fonts
+                                </div>
+                                <div style="border-left: 3px solid rgba(16, 185, 129, 0.8); padding-left: 1rem;">
+                                    <strong style="color: rgba(16, 185, 129, 1);">✅</strong> Document custom styles
+                                </div>
+                                <div style="border-left: 3px solid rgba(239, 68, 68, 0.8); padding-left: 1rem;">
+                                    <strong style="color: rgba(239, 68, 68, 1);">❌</strong> Don't override everything
+                                </div>
+                                <div style="border-left: 3px solid rgba(239, 68, 68, 0.8); padding-left: 1rem;">
+                                    <strong style="color: rgba(239, 68, 68, 1);">❌</strong> Avoid inline styles
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 9: Summary -->
+        <section class="slide" data-slide="9">
+            <div class="slide-content summary-slide">
+                <h2 class="slide-title">🚀 Choose Your Framework Wisely</h2>
+                <div class="end-decoration">
+                    <span class="thank-you">CSS frameworks accelerate development</span>
+                    <span class="questions">Next: Module 8 - Introduction to JavaScript</span>
+                </div>
+                <div class="demo-steps" style="margin-top: 3rem;">
+                    <div class="demo-step">
+                        <span class="step-number">→</span>
+                        <p>Bootstrap: Components & rapid prototyping</p>
+                    </div>
+                    <div class="demo-step">
+                        <span class="step-number">→</span>
+                        <p>Tailwind: Utility-first & customization</p>
+                    </div>
+                    <div class="demo-step">
+                        <span class="step-number">→</span>
+                        <p>Consider tradeoffs: speed vs. file size vs. customization</p>
+                    </div>
+                    <div class="demo-step">
+                        <span class="step-number">→</span>
+                        <p>Master vanilla CSS first, then pick a framework</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Slide Navigation -->
+    <nav class="slide-nav">
+        <button class="nav-btn prev-btn" id="prevBtn">←</button>
+        <span class="slide-counter" id="slideCounter">1 / 9</span>
+        <button class="nav-btn next-btn" id="nextBtn">→</button>
+    </nav>
+
+    <!-- Keyboard Hint -->
+    <div class="keyboard-hint">
+        <span>Use <kbd>←</kbd> <kbd>→</kbd> or <kbd>Space</kbd></span>
+    </div>
+
+    <!-- Script -->
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

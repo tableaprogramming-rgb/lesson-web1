@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3: Introduction to HTML</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body>
+    <!-- Course Navigation -->
+    <div class="course-nav home">
+        <a href="../index.html" class="course-btn">
+            <svg viewBox="0 0 24 24">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+            </svg>
+            Home
+        </a>
+    </div>
+    <div class="course-nav prev">
+        <a href="../module-2-introduction-to-web-architecture/introduction.html" class="course-btn">
+            <svg viewBox="0 0 24 24">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z" />
+            </svg>
+            Previous Lesson
+        </a>
+    </div>
+    <div class="course-nav next">
+        <a href="../module-4-html-deep-dive/html-deep-dive.html" class="course-btn">
+            Next Lesson
+            <svg viewBox="0 0 24 24">
+                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+            </svg>
+        </a>
+    </div>
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <nav class="slide-nav">
+        <button class="nav-btn prev-btn" id="prevBtn">←</button>
+        <span class="slide-counter" id="slideCounter">1 / 8</span>
+        <button class="nav-btn next-btn" id="nextBtn">→</button>
+    </nav>
+    <div class="keyboard-hint"><span>Use <kbd>←</kbd> <kbd>→</kbd> or <kbd>Space</kbd></span></div>
+    <div class="slides-container" id="slidesContainer">
+
+        <!-- Slide 1: Welcome -->
+        <section class="slide active" data-slide="1">
+            <div class="slide-content title-slide">
+                <div class="title-decoration"><span class="tag">Module 03</span></div>
+                <h1 class="main-title">
+                    <span class="gradient-text">Intro to HTML</span>
+                    <span class="subtitle">The Language of the Web</span>
+                </h1>
+                <p class="presenter-info">Structuring Your First Digital Documents</p>
+                <div class="animated-icons">
+                    <div class="floating-icon icon-1">📄</div>
+                    <div class="floating-icon icon-2">🏗️</div>
+                    <div class="floating-icon icon-3">🏷️</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: Learning Objectives -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-title">🎯 Learning Objectives</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-icon">📝</div>
+                        <h3>Fundamentals</h3>
+                        <p>Understand how HTML structures every single webpage.</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🔬</div>
+                        <h3>Anatomy</h3>
+                        <p>Learn tags, attributes, and content relationships.</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🚀</div>
+                        <h3>Build</h3>
+                        <p>Create your very first live HTML boilerplate.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: What is HTML? -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-title">📄 What is HTML?</h2>
+                <div class="definition-box">
+                    <span class="letter">H</span>yper<span class="letter">T</span>ext <span class="letter">M</span>arkup
+                    <span class="letter">L</span>anguage
+                </div>
+                <div class="key-points">
+                    <div class="key-point"><span>📝</span><strong>Markup</strong> - Using tags to annotate items (like a
+                        highlighter).</div>
+                    <div class="key-point"><span>🔗</span><strong>HyperText</strong> - Text that points to other places
+                        (the link).</div>
+                    <div class="key-point"><span>🦴</span><strong>The Skeleton</strong> - It provides the order, not the
+                        style.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Anatomy -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-title">🔬 Anatomy of an Element</h2>
+                <div class="anatomy-diagram" style="margin: 2rem 0;">
+                    <code
+                        style="font-size: 2.5rem; background: var(--glass-bg); padding: 1.5rem; border-radius: 15px; border: 1px solid var(--glass-border); display: block; text-align: center;">&lt;p class="intro"&gt;Hello!&lt;/p&gt;</code>
+                </div>
+                <div class="objectives-grid" style="grid-template-columns: repeat(4, 1fr); font-size: 1.6rem;">
+                    <div class="objective-card">Opening Tag</div>
+                    <div class="objective-card">Attribute</div>
+                    <div class="objective-card">Content</div>
+                    <div class="objective-card">Closing Tag</div>
+                </div>
+                <div class="note" style="margin-top: 2rem; color: var(--text-secondary);">
+                    💡 Notice the slash <code>/</code> in the closing tag. That's how the browser knows where the
+                    element ends.
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: The Boilerplate -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-title">📋 Basic HTML Structure</h2>
+                <div class="code-window">
+                    <div class="window-header"><span class="dot red"></span><span class="dot yellow"></span><span
+                            class="dot green"></span><span>index.html</span></div>
+                    <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My First Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Essential Tags -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-title">🏷️ Essential HTML Tags</h2>
+                <div class="tags-grid">
+                    <div class="tag-category">
+                        <h3>Text</h3><code>h1-h6</code> <code>p</code> <code>span</code>
+                    </div>
+                    <div class="tag-category">
+                        <h3>Media</h3><code>img</code> <code>video</code> <code>audio</code>
+                    </div>
+                    <div class="tag-category">
+                        <h3>Links</h3><code>a</code>
+                    </div>
+                    <div class="tag-category">
+                        <h3>Lists</h3><code>ul</code> <code>ol</code> <code>li</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Let's Build -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-title">🛠️ Hands-on Challenge</h2>
+                <div class="demo-steps">
+                    <div class="demo-step"><span class="step-number">01</span>
+                        <p>Open VS Code.</p>
+                    </div>
+                    <div class="demo-step"><span class="step-number">02</span>
+                        <p>Create <code>index.html</code>.</p>
+                    </div>
+                    <div class="demo-step"><span class="step-number">03</span>
+                        <p>Type <code>!</code> and hit Enter (Emmet magic).</p>
+                    </div>
+                    <div class="demo-step"><span class="step-number">04</span>
+                        <p>Add a heading and an image.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: Summary -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content summary-slide">
+                <h2 class="slide-title">🚀 Ready to Style?</h2>
+                <div class="end-decoration">
+                    <span class="thank-you">You've built the skeleton.</span>
+                    <span class="questions">Next: Module 4 - Advanced HTML & Forms</span>
+                </div>
+                <div class="demo-steps" style="margin-top: 3rem;">
+                    <div class="demo-step">
+                        <span class="step-number">DONE</span>
+                        <p>Foundations set. Proceed to Level 2.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>
