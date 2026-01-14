@@ -1,4 +1,4 @@
-# Lesson 0: Course Orientation
+# Module 0: Course Orientation
 
 This transcript covers the foundational mindset, tools, and goals for the Web Development course.
 

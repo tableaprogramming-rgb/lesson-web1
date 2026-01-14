@@ -1,11 +1,11 @@
-# Lesson 1: Introduction to the Web & HTML Fundamentals
+# Module 1: Introduction to the Web & HTML Fundamentals
 
 This transcript serves as a counterpart to the "Introduction to the Web" presentation. It covers the history, infrastructure, and foundational concepts of web development.
 
 ---
 
 ## 🎯 Learning Objectives
-By the end of this lesson, you will be able to:
+By the end of this module, you will be able to:
 *   **Understand the Web**: Define the World Wide Web and distinguish it from the Internet.
 *   **Web Infrastructure**: Explain how data travels between clients and servers.
 *   **HTML Basics**: Identify the purpose of HTML and its role in web development.
@@ -128,7 +128,7 @@ Every HTML file must follow this boilerplate structure:
 ## 🚀 Summary
 Today we laid the foundation of the web. We learned about the infrastructure that powers it, the history of its creation, and the basic syntax of the language that builds it.
 
-**Next Lesson**: We will dive deep into **CSS** to make our pages look beautiful!
+**Next Module**: We will dive deep into **CSS** to make our pages look beautiful!
 
 ---
 
