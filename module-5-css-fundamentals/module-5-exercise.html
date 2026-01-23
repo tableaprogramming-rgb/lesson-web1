@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise: CSS Selectors Laboratory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .exercise-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .brief-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .brief-card h2 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .brief-card ul {
+            list-style: none;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .brief-card li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .brief-card li::before {
+            content: '→';
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .sandbox {
+            background: white;
+            color: #1a1a1a;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .sandbox article {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .sandbox article:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .sandbox h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .sandbox p {
+            line-height: 1.7;
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        .sandbox code {
+            background: #f1f1f1;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9em;
+            color: #d1105a;
+        }
+
+        .highlight {
+            font-weight: 700;
+        }
+
+        /* Specificity marker style for the exercise */
+        .specificity-note {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        /* Home and Back Buttons */
+        .course-nav {
+            position: fixed;
+            top: 2rem;
+            z-index: 1000;
+        }
+
+        .course-nav.home {
+            left: 2rem;
+        }
+
+        .course-nav.back {
+            left: 10rem;
+        }
+
+        .course-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 100px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+        }
+
+        .course-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .course-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        @media (max-width: 768px) {
+            .course-nav {
+                position: static;
+                margin-bottom: 1rem;
+                display: inline-block;
+            }
+
+            .course-nav.back {
+                margin-left: 1rem;
+            }
+
+            .exercise-container {
+                padding-top: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <div class="course-nav home">
+        <a href="../index.html" class="course-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Home
+        </a>
+    </div>
+
+    <div class="course-nav back">
+        <a href="css-fundamentals.html" class="course-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Back to Lesson
+        </a>
+    </div>
+
+    <div class="exercise-container">
+        <header style="text-align: center; margin-bottom: 4rem;">
+            <span class="tag">Hands-on Practice</span>
+            <h1 class="gradient-text" style="font-size: 3.5rem; margin: 1rem 0;">Selectors Laboratory</h1>
+            <p class="course-description">Master the art of targeting elements and understanding specificity.</p>
+        </header>
+
+        <section class="brief-card">
+            <h2><span>🔬</span> Exercise Brief</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1.2rem;">
+                Open <code>style.css</code> and complete the following tasks to see how selectors interact:
+            </p>
+            <ul>
+                <li><strong>Task 1:</strong> Use an element selector to change the font-family of all
+                    <code>article</code> tags to <code>'Inter', sans-serif</code>.</li>
+                <li><strong>Task 2:</strong> Use the ID selector <code>#second</code> to give the second paragraph a
+                    distinct background color.</li>
+                <li><strong>Task 3:</strong> Use the class selector <code>.red</code> to change the text color to your
+                    favorite shade of red.</li>
+                <li><strong>Task 4:</strong> Try to override the <code>.red</code> class style by using a more specific
+                    selector like <code>article p.red</code>.</li>
+                <li><strong>Task 5:</strong> Style the <code>span</code> with the class <code>.highlight</code> to make
+                    it stand out.</li>
+            </ul>
+        </section>
+
+        <main class="sandbox">
+            <article>
+                <h2>Element Selector</h2>
+                <p>Element selectors target HTML elements by their tag name. In this example, the CSS rule for the
+                    <code>p</code> tag applies styling to every paragraph on the page. Element selectors are the most
+                    basic type of selector and are perfect for applying consistent styling to all instances of a
+                    particular element.</p>
+                <div class="specificity-note">Specificity: 0, 0, 1</div>
+            </article>
+
+            <article>
+                <h2>ID Selector</h2>
+                <p id="second">ID selectors target a unique element using the hash symbol (#) followed by the element's
+                    id attribute. In this example, the paragraph has id="second", which can be styled with
+                    <code>#second { /* styles */ }</code>. IDs must be unique within an HTML document—no two elements
+                    should share the same ID.</p>
+                <div class="specificity-note">Specificity: 1, 0, 0</div>
+            </article>
+
+            <article>
+                <h2>Class Selector</h2>
+                <p class="red">Class selectors target elements using the dot (.) followed by the class name. Multiple
+                    elements can share the same class, making class selectors ideal for reusing styling across different
+                    parts of your page. Notice the <span class="highlight">highlight</span> span element also has a
+                    class.</p>
+                <div class="specificity-note">Specificity: 0, 1, 0</div>
+            </article>
+
+            <article>
+                <h2>CSS Cascade</h2>
+                <p>The cascade is the fundamental principle that determines which CSS rules are applied when multiple
+                    rules target the same element. When conflicts arise, CSS follows a specific order of priority. Rules
+                    that appear later in the stylesheet override earlier rules with the same specificity.</p>
+                <div class="specificity-note">Order of Appearance matters</div>
+            </article>
+
+            <article>
+                <h2>CSS Specificity</h2>
+                <p class="red-italic">Specificity is a measure of how precisely a CSS selector targets an element. If
+                    you have <code>p { color: blue; }</code> and <code>.red { color: red; }</code>, the <span
+                        class="highlight">class selector wins</span> because it has higher specificity.</p>
+                <div class="specificity-note">Weighted Priority: ID > Class > Element</div>
+            </article>
+        </main>
+    </div>
+</body>
+
+</html>

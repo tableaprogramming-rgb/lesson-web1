@@ -1,0 +1,72 @@
+/* 
+   CSS LAYOUT MASTERY LABORATORY
+   Follow the tasks in the HTML file and write your styles below!
+*/
+
+/* --- Base Box Styles (Don't change these) --- */
+.pos-card,
+.grid-item,
+.nav-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.badge {
+    background: #6366f1;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+.nav-item {
+    font-size: 1.5rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- YOUR TASKS START HERE --- */
+
+/* Task 1: Positioning 
+   Goal: Move .badge to the top-right of .pos-card
+*/
+.pos-card {
+    /* Hint: Establish a reference point */
+}
+
+.badge {
+    /* Hint: Move relative to parent */
+}
+
+
+/* Task 2: Flexbox Navigation
+   Goal: Center the .nav-item elements in .flex-nav
+*/
+.flex-nav {
+    /* Hint: Make it a flex container */
+}
+
+
+/* Task 3: The Grid Gallery
+   Goal: 3-column responsive grid
+*/
+.grid-gallery {
+    /* Hint: Use display: grid and repeat(auto-fit, ...) */
+}
+
+
+/* Task 4: Motion
+   Goal: Add a scale effect on hover for all cards and items
+*/
+.pos-card,
+.grid-item,
+.nav-item {
+    /* Hint: Add transition and transform: scale() */
+}
