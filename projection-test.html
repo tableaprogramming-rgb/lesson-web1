@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projection Style Test Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        /* Test page specific styles */
+        .test-info {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+            z-index: 1000;
+            font-size: 0.85rem;
+        }
+
+        .test-info h4 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .viewport-info {
+            color: var(--text-secondary);
+            margin: 0.25rem 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <nav class="slide-nav">
+        <button class="nav-btn prev-btn" id="prevBtn">←</button>
+        <span class="slide-counter" id="slideCounter">1 / 7</span>
+        <button class="nav-btn next-btn" id="nextBtn">→</button>
+    </nav>
+
+    <div class="keyboard-hint"><span>Use <kbd>←</kbd> <kbd>→</kbd> or <kbd>Space</kbd></span></div>
+
+    <!-- Viewport Info Display -->
+    <div class="test-info">
+        <h4>📊 Test Info</h4>
+        <div class="viewport-info">Viewport: <strong id="viewport-width">0</strong>px</div>
+        <div class="viewport-info">Root Size: <strong id="root-size">16</strong>px</div>
+        <div class="viewport-info">Purpose: Projection Testing</div>
+    </div>
+
+    <div class="slides-container" id="slidesContainer">
+
+        <!-- Slide 1: Title Slide -->
+        <section class="slide active" data-slide="1">
+            <div class="slide-content title-slide">
+                <div class="title-decoration"><span class="tag">Test 01</span></div>
+                <h1 class="main-title">
+                    <span class="gradient-text">Typography Test</span>
+                    <span class="subtitle">Projection Readability Check</span>
+                </h1>
+                <p class="presenter-info">Please view from the back of the room</p>
+                <div class="animated-icons">
+                    <div class="floating-icon icon-1">📏</div>
+                    <div class="floating-icon icon-2">🔍</div>
+                    <div class="floating-icon icon-3">👁️</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: Text Hierarchy -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-title">📝 Font Size Hierarchy Test</h2>
+                <p class="slide-subtitle">Can you read all of these from the back?</p>
+
+                <div class="key-points">
+                    <div class="key-point">
+                        <span>1️⃣</span>
+                        <strong>Slide Title (2.5rem / 40px)</strong>: This is your main section header
+                    </div>
+                    <div class="key-point">
+                        <span>2️⃣</span>
+                        <strong>Subtitle (1.2rem / 19.2px)</strong>: This is secondary descriptive text
+                    </div>
+                    <div class="key-point">
+                        <span>3️⃣</span>
+                        Regular body text (0.9rem / 14.4px): This is the smallest text you'll see
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; padding: 1.5rem; background: var(--glass-bg); border-radius: 15px;">
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.6;">
+                        Sample paragraph text at 1.1rem. The quick brown fox jumps over the lazy dog.
+                        This sentence contains every letter of the alphabet for complete readability testing.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Code Block Test -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-title">💻 Code Readability Test</h2>
+                <p class="slide-subtitle">Current size: 0.95rem (15.2px)</p>
+
+                <div class="code-window">
+                    <div class="window-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span>example.html</span>
+                    </div>
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Test Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Can you read this code?&lt;/h1&gt;
+    &lt;p&gt;Check from the back of the room.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Interactive Elements -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-title">🎯 Interactive Element Size Test</h2>
+
+                <div class="objectives-grid">
+                    <div class="objective-card" style="--delay: 0s">
+                        <div class="objective-icon">👆</div>
+                        <h3>Navigation Buttons</h3>
+                        <p>Current: 40px × 40px<br>Can you click easily?</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.1s">
+                        <div class="objective-icon">🖱️</div>
+                        <h3>Card Hover</h3>
+                        <p>Hover over this card<br>Is the feedback clear?</p>
+                    </div>
+                    <div class="objective-card" style="--delay: 0.2s">
+                        <div class="objective-icon">📱</div>
+                        <h3>Touch Targets</h3>
+                        <p>Test on mobile too<br>44px minimum?</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Contrast Test -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-title">🌗 Contrast & Visibility Test</h2>
+
+                <div class="comparison-container">
+                    <div class="comparison-card internet-card">
+                        <h3>Primary Text</h3>
+                        <p style="color: var(--text-primary);">White (#ffffff)</p>
+                        <p style="color: var(--text-primary); font-size: 0.85rem;">Can you see this clearly on the
+                            projection?</p>
+                    </div>
+                    <div class="comparison-card web-card">
+                        <h3>Secondary Text</h3>
+                        <p style="color: var(--text-secondary);">Gray (#a1a1aa)</p>
+                        <p style="color: var(--text-secondary); font-size: 0.85rem;">Is this gray visible from far away?
+                        </p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <div class="note"
+                        style="padding: 1rem; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 10px;">
+                        💡 <strong>Note:</strong> Glass borders are at rgba(255,255,255,0.1). Are they visible on
+                        projector?
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Layout Test -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-title">📐 Layout & Spacing Test</h2>
+
+                <div class="tech-stack">
+                    <div class="tech-card html-tech">
+                        <div class="tech-icon">&lt;HTML&gt;</div>
+                        <h3>Structure</h3>
+                        <p>Is the spacing comfortable?</p>
+                    </div>
+                    <div class="tech-card css-tech">
+                        <div class="tech-icon">{CSS}</div>
+                        <h3>Style</h3>
+                        <p>Can you read the icons?</p>
+                    </div>
+                    <div class="tech-card js-tech">
+                        <div class="tech-icon">JS()</div>
+                        <h3>Behavior</h3>
+                        <p>Proper card sizing?</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <code
+                        style="background: var(--bg-card); padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.9rem;">
+                        Inline code test: const greeting = "Hello World";
+                    </code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Summary -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content summary-slide">
+                <h2 class="slide-title">✅ Testing Checklist</h2>
+
+                <div class="summary-container">
+                    <div class="summary-section">
+                        <h3>Readability Tests</h3>
+                        <ul>
+                            <li>Slide titles visible?</li>
+                            <li>Body text readable?</li>
+                            <li>Code blocks clear?</li>
+                            <li>Icons distinguishable?</li>
+                        </ul>
+                    </div>
+                    <div class="next-steps-section">
+                        <h3>Interactive Tests</h3>
+                        <ul>
+                            <li>Navigation easy to click?</li>
+                            <li>Hover effects visible?</li>
+                            <li>Transitions smooth?</li>
+                            <li>Mobile responsive?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="end-decoration">
+                    <span class="thank-you">Test Complete!</span>
+                    <span class="questions">Ready for optimization?</span>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Display viewport info
+        function updateViewportInfo() {
+            const width = window.innerWidth;
+            const rootSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+            document.getElementById('viewport-width').textContent = width;
+            document.getElementById('root-size').textContent = rootSize.toFixed(1);
+        }
+
+        updateViewportInfo();
+        window.addEventListener('resize', updateViewportInfo);
+    </script>
+</body>
+
+</html>
